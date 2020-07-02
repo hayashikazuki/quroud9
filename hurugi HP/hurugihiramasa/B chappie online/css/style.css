@@ -1,0 +1,44 @@
+
+body{
+  margin: 0;
+  
+  
+}
+
+header{
+ padding: 10px 30px;
+ background: black;
+ color: white;
+}
+
+main{
+  margin: 20px;
+}
+
+.info{
+  display: flex;
+  margin: 20px;
+  width: 1000px;
+  justify-content: space-between;
+}
+
+main img{
+  width: 400px;
+}
+
+.info1{
+  width: 500px;
+  
+}
+
+.info p{
+  color: rgb(0, 0, 0);
+}
+
+a{
+  text-decoration: none;
+  display: block;
+  margin-left: 40px;
+  font-size: 20px;
+}
+

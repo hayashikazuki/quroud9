@@ -1,0 +1,463 @@
+body{
+  margin: 0;
+  background: rgb(255, 255, 255);
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+header{
+  
+  display: flex;
+  width: 100%;
+  
+ position: fixed;
+ top: 0;
+ left: 0;
+ z-index: 1;
+}
+
+header a{
+  text-decoration: none;
+  color: black;
+  display: block;
+}
+
+
+.menu{
+  background-color: rgb(255, 255, 255);
+  
+  width: 400px;
+  text-align: center;
+  border:1px solid black;
+  font-size: 12px;
+  padding: 3px;
+  cursor: pointer;
+ 
+}
+
+.menu:hover{
+  opacity: 0.6;
+}
+
+
+
+
+
+main{
+  
+  margin-top: 50px;
+  margin-bottom: 50px;
+  
+  
+}
+
+.topinfo{
+  width: 100%;
+  margin: 0 auto;
+}
+
+.topword{
+  
+  text-align: left;
+  width: 1000px;
+  font-size: large;
+  color: black;
+  border-bottom: 1px solid black;
+  margin: 0 auto;
+}
+
+
+
+.second{
+  display: flex;
+  width: 1000px;
+  margin: 0 auto;
+  
+  margin-top: 10px;
+}
+
+.secondimg img{
+  width: 500px;
+  height: 516px;
+  vertical-align: bottom;
+  
+}
+
+
+.secondinfo{
+  width: 500px;
+}
+
+.secondinfo img{
+  width: 500px;
+  
+  vertical-align: bottom;
+}
+
+.secondimg a{
+  display: block;
+  text-decoration: none;
+  
+}
+
+.secondimg a:hover{
+  opacity: 0.7;
+}
+
+.saleinfo{
+  width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  
+  
+  
+}
+
+
+
+.saleinfo1{
+  color: rgb(0, 0, 0,0.8);
+  
+}
+
+.saleinfo1 a{
+  display: block;
+  text-decoration: none;
+  width: 250px;
+  
+  margin: 0 auto;
+}
+
+
+
+.saleinfo1 img{
+  
+  width: 250px;
+  
+}
+
+.saleinfo1 img:hover{
+  opacity: 0.4;
+}
+
+
+.more{
+  margin-bottom: 50px;
+}
+
+.moreinfo{
+  margin: 0 auto;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  background-color: rgba(0, 0, 0,0.8);
+  font-size: larger;
+  width: 300px;
+  border-radius: 15px;
+}
+
+.moreinfo:hover{
+  opacity: 0.8;
+}
+
+.moreinfo a{
+  text-decoration: none;
+  color: white;
+}
+
+.huruginame{
+  text-align: left;
+  width: 1000px;
+  font-size: large;
+  color: black;
+  border-bottom: 1px solid black;
+  margin: 0 auto;
+}
+
+.hurugi{
+  width: 1000px;
+  margin: 5px auto;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+
+
+.hurugi1 a{
+ text-decoration: none;
+ 
+ display: block;
+}
+
+.hurugi1:hover{
+  opacity: 0.6;
+}
+
+.hurugi1 img{
+  width: 220px;
+  
+}
+
+.morehurugiinfo{
+  width: 300px;
+  border-radius: 15px;
+  margin: 0 auto;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  background-color: rgb(0, 0, 0,0.8);
+  font-size: larger;
+  margin-bottom: 40px;
+}
+
+.morehurugiinfo:hover{
+  opacity: 0.8;
+}
+
+.morehurugiinfo a{
+  text-decoration: none;
+  color: white;
+}
+
+.code{
+  border-bottom: 1px solid black;
+  
+  text-align: left;
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.insta{
+ padding-bottom: 20px;
+  
+}
+
+.instaname{
+  text-align: left;
+  width: 1000px;
+  font-size: x-large;
+  color: black;
+  margin: 0 auto;
+  display: flex;
+}
+
+.instaname img{
+  margin-left: 5px;
+  width: 25px;
+  height: 25px;
+  align-self: center;
+}
+
+.instapicg{
+  width: 800px;
+  margin: 5px auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.instapic img{
+  width: 250px;
+}
+
+.instapic{
+  text-align: center;
+}
+.instapic p{
+  font-family: fantasy;
+  color: rgb(0, 0, 0);
+  
+}
+
+.instapic a{
+text-decoration: none;
+display: flex;
+width: 250px;
+}
+
+.instapic a:hover{
+  opacity: 0.8;
+}
+
+.moreinstainfo{
+  width: 300px;
+  border-radius: 15px;
+  margin: 0 auto;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  background-color: rgb(0, 0, 0,0.8);
+  
+  
+}
+
+.moreinstainfo:hover{
+  opacity: 0.6;
+}
+
+.moreinstainfo a{
+  text-decoration: none;
+  color: white;
+}
+
+
+
+
+.you{
+  margin: 10px 0 0 0;
+  
+  
+}
+
+/* .you img{
+  width: 40px;
+  margin-bottom: 10px;
+} */
+
+
+.youname{
+  text-align: left;
+  width: 1000px;
+  font-size: large;
+  color: black;
+  border-bottom: 1px solid black;
+  margin: 0 auto;
+}
+
+.youpicg{
+  width: 800px;
+  margin: 10px auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.youpic{
+  background: rgb(255, 255, 255);
+  text-align: center;
+  width: 225px;
+  
+  padding: 5px;
+}
+
+.youpic img{
+  width: 200px;
+}
+
+.youinfo{
+  height: 150px;
+ 
+}
+
+.youpic h3{
+  font-size: 15px;
+}
+
+.youpic p{
+  font-size: 5px;
+}
+
+.moreyou{
+  margin-bottom: 100px;
+}
+
+.moreyouinfo{
+  width: 300px;
+  border-radius: 15px;
+  margin: 0 auto;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  background-color: rgb(0, 0, 0,0.8);
+  font-size: larger;
+  
+}
+
+.moreyouinfo:hover{
+  opacity: 0.6;
+}
+
+.moreyouinfo a{
+  text-decoration: none;
+  color: white;
+}
+
+.chan{
+  background: rgb(175, 255, 47);
+  
+}
+
+
+.chan a{
+  display: block;
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  padding: 10px;
+}
+
+.chan:hover{
+  opacity: 0.6;
+}
+
+.top{
+  background: rgb(62, 62, 255);
+  
+  text-align: center;
+  width: 300px;
+  margin: 0 auto;
+  font-size: large;
+  border-radius: 20px;
+  padding: 5px;
+}
+
+.top a{
+  text-decoration: none;
+  display: block;
+  color: white;
+}
+
+.top:hover{
+  opacity: 0.8;
+}
+
+footer{
+  width: 100%;
+  margin: 0;
+  display: flex;
+  
+  text-align: center;
+}
+
+.rule{
+  width: 500px;
+  
+  font-size: 5px;
+  border: 1px solid black;
+  
+  
+  
+}
+
+#jump1{
+  margin: -50px;
+  padding: 50px;
+}
+#jump2{
+  margin: -50px;
+  padding: 50px;
+}
+#jump3{
+  margin: -50px;
+  padding: 50px;
+}
+#jump4{
+  margin: -50px;
+  padding: 50px;
+}
+
+
+
+
+
+

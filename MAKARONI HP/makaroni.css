@@ -1,0 +1,268 @@
+body{
+    margin:0;
+    width:100%;
+}
+
+header{
+    width:100%;
+    margin:0 auto;
+    background:white;
+    display:flex;
+    justify-content:space-between;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:1;
+}
+
+.header-img{
+    width:40%;
+}
+
+.header-area{
+    margin-top:32px;
+    width:50%;
+}
+
+.header-icon{
+    display:flex;
+    justify-content:flex-end;
+  
+}
+
+.header-icon li{
+    padding-right:20px;
+    list-style:none;
+}
+
+.header-icon a{
+    display:block;
+    text-decoration:none;
+}
+
+.my-black{
+    color:black;
+}
+
+
+.header-menu{
+    display:flex;
+    justify-content:space-between;
+    
+}
+
+.header-menu li{
+
+    list-style:none;
+}
+
+.header-menu a{
+    color:black;
+    display:block;
+    text-decoration:none;
+}
+
+.header-menu a:hover{
+   opacity:0.8;
+}
+
+main{
+    margin-top:200px;
+    width:100%;
+    display:flex;
+}
+
+
+.box{
+    width:500px;
+    height:500px;
+    background:#FFFFAA;;
+    text-align:center
+}
+
+.box h4{
+    color:#FFFFAA;
+    background:black;
+    margin:100px 100px 10px 100px;
+}
+
+.box p{
+    margin:10px;
+}
+
+.box h2{
+    margin:10px;
+}
+
+
+
+.box img{
+    width:200px;
+}
+
+.main-img img{
+    width:1000px;
+    opacity:0.8;
+}
+
+
+.slides{
+    width:1000px;
+    margin:50px auto;
+}
+
+.slide img{
+    width:300px;
+    height:200px;
+}
+
+.prevArrow, .nextArrow{
+    position: absolute;
+    top: 90px;
+    margin: 0;
+    padding: 0;
+}
+
+.prevArrow{
+    left: -30px;
+}
+
+.nextArrow{
+    right: -30px;
+}
+
+
+.about{
+    width:1200px;
+    margin:30px auto;
+    display:flex;
+}
+
+.about-img img{
+    width:900px;
+    vertical-align:bottom;
+}
+
+.about-info{
+    width:300px;
+    background:black;
+    color:white;
+    text-align:center;
+    line-height:45px;
+}
+
+.more{
+    width:1200px;
+    margin:0 auto;
+    display:flex;
+}
+
+.discography{
+    background:#FFAD90;
+    width:600px;
+    height:78px;
+}
+    
+
+.discography h1{
+    color:black;
+    letter-spacing:10px;
+    padding-left:10px;
+}
+
+.discography a{
+    text-decoration:none;
+    display:block;
+}
+
+.discography a:hover{
+    opacity:0.8;
+}
+
+.discography-img{
+    display:flex;
+}
+
+.img-hope img:hover{
+    background:red;
+}
+
+.img-hope img{
+    width:400px;
+}
+
+.img-sub img{
+    vertical-align:bottom;
+    width:200px;
+    height:199px;
+}
+
+.musicvideo{
+    background:#8EF1FF;
+    width:600px;
+    height:472px;
+}
+
+.musicvideo h1{
+    color:black;
+    letter-spacing:10px;
+    padding-left:10px;
+}
+
+.musicvideo a{
+    text-decoration:none;
+    display:block;
+}
+
+.musicvideo a:hover{
+    opacity:0.8;
+}
+
+footer{
+    margin-top:100px;
+    width:1200px;
+}
+
+.rule p{
+    color:black;
+    float:left;
+    padding-left:100px;
+}
+
+.rule a{
+    display:block;
+    text-decoration:none;
+}
+
+.rule:hover{
+    opacity:0.8;
+}
+
+.top-btn{
+    width:200px;
+    margin-left:1200px;
+    text-align:center;
+}
+
+.top-btn a{
+    text-decoration:none;
+    display:block;
+}
+
+.rule:hover{
+    opacity:0.8;
+}
+
+.top-btn p{
+    color:black;
+}
+
+.top-btn:hover{
+    opacity:0.8;
+}
+
+
+
+
+
+

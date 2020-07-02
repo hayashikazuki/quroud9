@@ -1,0 +1,87 @@
+body{
+  margin: 0;
+}
+
+header{
+  color: white;
+  background: black;
+  padding: 5px 200px 5px 0;
+  
+}
+
+header h1{
+  margin-left: 100px;
+}
+
+main{
+  width: 1000px;
+  display: flex;
+  justify-content: space-between;
+  margin-left: 200px;
+}
+
+.map{
+  width: 500px;
+  
+}
+
+.info{
+  width: 500px;
+}
+
+.info li{
+  line-height: 50px;
+}
+
+.imginfo{
+  width: 1200px;
+  margin: 50px auto;
+  display: grid;
+  grid-template-columns: repeat(5,200px);
+  justify-content: center;
+  gap: 0 5px;
+  
+}
+
+.imginfo img{
+  width: 200px;
+  height: 120px;
+}
+
+.my-yerrow{
+  color: rgb(255, 208, 0);
+}
+
+.kutikomititle{
+  padding: 2px;
+  border: 1px solid black;
+  text-align: center;
+  width: 200px;
+  margin-left: 100px;
+  
+}
+
+.kutikomi{
+  width: 1200px;
+  margin: 50px auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.kutikomiimg{
+  width: 200px;
+  text-align: center;
+  border: 1px solid rgb(0, 0, 0);
+}
+
+.kutikomiimg p{
+  
+}
+
+.kutikomiinfo{
+  width: 900px;
+  
+  padding: 10px;
+
+}
+

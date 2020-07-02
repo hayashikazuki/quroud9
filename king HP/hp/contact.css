@@ -1,0 +1,98 @@
+body{
+    margin:0;
+    background:white;
+    font-family:'Tahoma';
+}
+
+main{
+    width:100%;
+    text-align:center;
+}
+
+main h1{
+    padding:5px;
+    background:black;
+    color:white;
+    margin-bottom:30px;
+}
+
+form{
+    width:100%;
+    margin:0 auto;
+    text-align:center;
+    margin-top:50px;
+}
+
+input{
+    display:block;
+    margin:20px auto;
+    width:250px;
+    height:35px;
+}
+
+textarea{
+    display:block;
+    margin:20px auto;
+    width:250px;
+    height:150px;
+}
+
+.btn-info{
+    display:block;
+    margin:30px auto;
+    width:150px;
+    height:50px;
+    border-radius:5px;
+    color:white;
+    background:black;
+    border-color:black;
+}
+
+.btn-info:hover{
+    opacity:0.8;
+}
+
+a.top-btn {
+    display:block;
+    margin:50px auto 20px auto;
+    width:180px;
+    padding:3px 0;
+    color: black;
+    background:white;
+    text-align:center;
+    text-decoration: none;
+    border: 2px solid black;
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+    -webkit-transition: all 200ms cubic-bezier(0.25, 0.75, 0.5, 1);
+    transition: all 200ms cubic-bezier(0.25, 0.75, 0.5, 1);
+}
+
+a.top-btn:after {
+    content: '';
+    position: absolute;
+    -webkit-transition: all 250ms cubic-bezier(0.25, 0.75, 0.5, 1.25);
+    transition: all 250ms cubic-bezier(0.25, 0.75, 0.5, 1.25);
+    width: 0;
+    right: 0%;
+    bottom: 0;
+    height: 100%;
+    background: black;
+    z-index: -1;
+}
+
+a.top-btn:hover, a.top-btn.hover {
+    color: white;
+}
+
+a.top-btn:hover:after, a.top.hover:after {
+    width: 100%;
+    right: auto;
+    left: 0;
+}
+
+main a{
+    text-decoration:none;
+    color:black;
+}

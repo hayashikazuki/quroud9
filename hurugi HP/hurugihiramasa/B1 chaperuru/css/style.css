@@ -1,0 +1,45 @@
+body{
+  margin: 0;
+}
+
+main{
+  margin-bottom: 100px;
+}
+
+header{
+  background: rgb(0, 0, 0);
+  color: white;
+  padding: 5px;
+  padding-left: 40px;
+}
+
+.info{
+  margin: 30px;
+  display: flex;
+  justify-content: space-between;
+  width: 1100px;
+}
+
+.info1{
+  width: 500px;
+}
+
+.info3{
+  width: 500px;
+}
+
+.info3 img{
+  width: 400px;
+  height: 300px;
+  
+}
+
+.sns li{
+  list-style: none;
+  margin-left: 20px;
+}
+
+.sns a{
+  margin-left: 48px;
+}
+

@@ -1,0 +1,43 @@
+
+body{
+  margin: 0;
+  
+  
+}
+
+header{
+  padding: 10px 30px;
+  background: black;
+  color: white;
+ }
+
+ main{
+  margin: 20px;
+}
+
+.info{
+  display: flex;
+  margin: 20px;
+  
+}
+
+main img{
+  width: 300px;
+}
+
+.info1{
+  width: 400px;
+  margin-right: 50px;
+}
+
+.info p{
+  color: rgb(0, 0, 0);
+}
+
+a{
+  text-decoration: none;
+  display: block;
+  margin-left: 20px;
+  font-size: 20px;
+}
+
