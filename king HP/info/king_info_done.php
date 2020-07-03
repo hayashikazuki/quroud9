@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="ja">
-    <head>
-        <meta charset="UTF-8">
-        <title>CONTACT管理ページ</title>
-    </head>
-    <body>
-    <?php   
+<?php   
     
     try
     {
@@ -35,7 +28,8 @@
     
     $dbh = null;
     
-    print '送信いたしました。<br />';
+    
+    $send = '送信いたしました...';
     
     }
     catch (Exception $e)
@@ -45,8 +39,28 @@
     }
     
     ?>
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>CONTACT管理ページ</title>
+        <link rel="stylesheet" href="king_info.css"/>
+        <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.0.10/font-awesome-animation.css" type="text/css" media="all" />
+    </head>
+    <body>
     
-    <a href="../hp/king.html">戻る</a>
+    <div class="send">
+        <p><?php print $send; ?></p>
+        <p><?php print $info_name; ?>さま、</p>
+        <p>お問い合わせありがとうございます。</p>
+        <p>後日ご連絡を差し上げます。</p>
+        <p class="top"><a href="../hp/king.html">トップへ戻る</a></p>
+        <a href="https://mobile.twitter.com/hakayazu1998" target="_blank"><i class="fab fa-twitter fa-fw faa-wrench animated-hover fa-2x"></i></a>
+        <a href=""><i class="fab fa-facebook fa-fw faa-wrench animated-hover fa-2x"></i></a>
+        <a href="../hp/works.html" target="_blank"><i class="fas fa-portrait fa-fw faa-wrench animated-hover fa-2x"></i></a>
+    </div>
     
     </body>
 </html>

@@ -1,0 +1,36 @@
+body{
+    margin:0;
+    background:black;
+}
+
+.send{
+    width:100%;
+    margin:200px auto;
+    text-align:center;
+    color:white;
+}
+
+.send p{
+    text-align:center;
+    font-weight:bold;
+    line-height:40px;
+    letter-spacing:3px;
+    color:white;
+}
+
+.top{
+    margin:50px auto 20px auto;
+    width:180px;
+    border:1px solid white;
+    padding:3px;
+}
+
+.send a{
+    text-decoration:none;
+    color:white;
+}
+
+.top:hover{
+    opacity:0.6;
+}
+
