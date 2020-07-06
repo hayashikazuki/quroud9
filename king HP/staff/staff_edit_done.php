@@ -12,19 +12,8 @@ else
     print $_SESSION['staff_name'];
     print'さんログイン中<br />';
     print'<br />';
-
-?>
-<!DOCTYPE html>
-<html lang="ja">
-    <head>
-        <meta charset="UTF-8">
-        <title>CONTACT管理ページ</title>
-    </head>
-    <body>
-    
-    <?php   
-    
-    try
+}
+try
     {
     
     require_once('../common/common.php');
@@ -55,12 +44,25 @@ else
         print 'ただいま障害により大変ご迷惑をお掛けしております。';
         exit();
     }
+
+?>
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>CONTACT管理ページ</title>
+        <link rel="stylesheet" href="staff.css"/>
+        <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.0.10/font-awesome-animation.css" type="text/css" media="all" />
+    </head>
+    <body>
     
-    ?>
+    <section class="done">
+        <p><?php print $staff_name; ?>さんを</p>
+        <p>修正しました。</p>
+        <a href ="staff_list.php">戻る</a>
+    </section>
     
-    修正しました。<br />
-    <br />
-    <a href ="staff_list.php">戻る</a>
-        
     </body>
 </html>

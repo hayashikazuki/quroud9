@@ -1,0 +1,86 @@
+.menu,.login{
+    width:100%;
+}
+
+.topmenu,.stafflogin{
+    letter-spacing:2px;
+    border:1px solid black;
+    padding:1px;
+    width:250px;
+    text-align:center;
+    margin:30px auto 50px auto;
+    color:white;
+    background:black;
+}
+
+.selectmenu{
+    font-size:15px;
+    letter-spacing:1px;
+    width:250px;
+    margin:0 auto;
+    list-style:none;
+    padding:0;
+}
+
+.selectmenu a{
+    text-decoration:none;
+    color:black;
+}
+
+.selectmenu a:hover{
+    opacity:0.7;
+}
+
+.staffinput {
+    font-size:12px;
+    width:250px;
+    margin:0 auto;
+    list-style:none;
+    padding:0;
+}
+
+.loginbtn{
+    width:100px;
+    margin:50px auto;
+    display:block;
+}
+
+.logout{
+    margin-top:100px;
+    width:100%;
+    text-align:center;
+}
+
+.logout p{
+    letter-spacing:2px;
+}
+
+.logout a{
+    width:200px;
+    background:black;
+    letter-spacing:1px;
+    text-decoration:none;
+    color:white;
+    display:block;
+    padding:3px;
+    margin:100px auto;
+}
+
+.logout a:hover{
+    opacity:0.7;
+}
+
+.loginarea{
+    width:280px;
+    margin:10px auto 0 auto;
+    border:1px solid black;
+    text-align:center;
+    background:#EEEEEE;
+}
+
+.loginarea p{
+    font-size:13px;
+    font-weit:bold;
+    letter-spacing:2px;
+}
+

@@ -9,22 +9,9 @@ if(isset($_SESSION['login'])==false)
 }
 else
 {
-    print $_SESSION['staff_name'];
-    print'さんログイン中<br />';
-    print'<br />';
+    $login = $_SESSION['staff_name'];
 }
-?>
-<!DOCTYPE html>
-<html lang="ja">
-    <head>
-        <meta charset="UTF-8">
-        <title>CONTACT管理ページ</title>
-    </head>
-    <body>
-    
-    <?php
-    
-    try
+try
     {
     $year = $_POST['year'];
     $month = $_POST['month'];
@@ -88,13 +75,38 @@ else
         print'ただいま障害により大変ご迷惑をお掛けしております。';
         exit();
     }
+?>
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>CONTACT管理ページ</title>
+        <link rel="stylesheet" href="order.css"/>
+        <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.0.10/font-awesome-animation.css" type="text/css" media="all" />
+    </head>
+    <body>
     
-    ?>
-    
-    <a href="uketuke.csv">注文データのダウンロード</a><br />
-    <br />
-    <a href="order_download.php">日付選択へ</a><br />
-    <br />
-    <a href="../staff_login/staff_top.php">トップメニューへ</a><br />
+        <div class="loginarea">
+            <p><?php print $login; ?>さん、ログイン中</p>
+        </div>
+        <section class="menu">
+            <p>ダウンロード</p>
+            <ul class="selectmenu">
+                <li>
+                    <a href="uketuke.csv">"注文データのダウンロード"</a>
+                    <br />
+                    <br />
+                </li>
+                <li>
+                    <a href="order_download.php">日付選択へ</a>
+                </li>
+                <li>
+                    <a href="../staff_login/staff_top.php">トップメニューへ</a>
+                </li>
+            </ul>
+        </section>
+        
     </body>
 </html>

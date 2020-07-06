@@ -13,18 +13,7 @@ else
     print'さんログイン中<br />';
     print'<br />';
 }
-?>
-<!DOCTYPE html>
-<html lang="ja">
-    <head>
-        <meta charset="UTF-8">
-        <title>CONTACT管理ページ</title>
-    </head>
-    <body>
-    
-    <?php
-    
-    try
+ try
     {
     
     $king_code=$_GET['kingcode'];
@@ -55,39 +44,58 @@ else
         print'ただいま障害により大変ご迷惑をお掛けしております。';
         exit();
     }
-    
-    ?>
-    
-    ご依頼者情報参照<br />
-    <br />
-    <受付コード><br />
-    <?php print $king_code; ?>
-    <br />
-    <br />
-    <ご依頼者名><br />
-    <?php print $king_name; ?>
-    <br />
-    <br />
-    <受付時間><br />
-    <?php print $king_date; ?>
-    <br />
-    <br />
-    <メールアドレス><br />
-    <?php print $king_email; ?> 
-    <br />
-    <br />
-    <件名><br />
-    <?php print $king_subject; ?> 
-    <br />
-    <br />
-    <ご依頼者からのメッセージ><br />
-    <?php print $king_messages; ?> 
-    <br />
-    <br />
-    
-    <form>
-    <input type="button" onclick="history.back()" value="戻る">
-    </form>
+?>
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>CONTACT管理ページ</title>
+        <link rel="stylesheet" href="king_many_info.css"/>
+        <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.0.10/font-awesome-animation.css" type="text/css" media="all" />
+
+    </head>
+    <body>
+        <section class="disp">
+            <p>ご依頼者情報参照</p>
+            <ul class="dispinfo">
+                <li>
+                    <p><受付コード></p>
+                    <p><?php print $king_code; ?></p>
+                    <br />
+                </li>
+                <li>
+                    <p><ご依頼者名></p>
+                    <p><?php print $king_name; ?></p>
+                    <br />
+                </li>
+                <li>
+                    <p> <メールアドレス></p>
+                    <p><?php print $king_email; ?> </p>
+                    <br />
+                </li>
+                <li>
+                    <p><ご依頼日時></p>
+                    <p><?php print $king_date; ?></p>
+                    <br />
+                </li>
+                <li>
+                    <p><件名></p>
+                    <p><?php print $king_subject; ?> </p>
+                    <br />
+                </li>
+                <li>
+                    <p><ご依頼者からのメッセージ></p>
+                    <p><?php print $king_messages; ?> </p>
+                    <br />
+                </li>
+            </ul>
+            
+            <form>
+                <input type="button" onclick="history.back()" value="戻る" class="btn">
+            </form>
+        </section>
     
     </body>
 </html>

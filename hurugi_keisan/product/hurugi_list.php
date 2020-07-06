@@ -15,7 +15,7 @@
     $dbh = new PDO($dsn,$user,$password);
     $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
     
-    $sql = 'SELECT code,name,stocking,sale,shop,date,remarks FROM hurugi_product WHERE 1';
+    $sql = 'SELECT code,namecode,name,stocking,expect,sale,shop,date,saledate,remarks FROM hurugi_product WHERE 1';
     $stmt = $dbh->prepare($sql);
     $stmt->execute();
     
@@ -24,12 +24,16 @@
     print '<p>仕入れ管理一覧</p>';
     print '<table border="1">';
     print '<tr>';
+    print '<td>商品コード</td>';
     print '<td>商品名</td>';
     print '<td>仕入額</td>';
+    print '<td>販売予想額</td>';
     print '<td>販売額</td>';
     print '<td>利益</td>';
+    print '<td>利益率</td>';
     print '<td>仕入先</td>';
     print '<td>購入日</td>';
+    print '<td>販売日</td>';
     print '<td>備考</td>';
     print '</tr>';
     
@@ -47,10 +51,16 @@
         print '<tr>';
         print '<td>';
         print'<input type="radio" name="hurugicode" value="'.$rec['code'].'">';
+        print $rec['namecode'];
+        print '</td>';
+        print '<td>';
         print $rec['name'];
         print '</td>';
         print '<td>';
         print $rec['stocking'];
+        print '</td>';
+        print '<td>';
+        print $rec['expect'];
         print '</td>';
         print '<td>';
         print $rec['sale'];
@@ -59,10 +69,16 @@
         print $rec['sale']-$rec['stocking'];
         print '</td>';
         print '<td>';
+        print ($rec['sale']-$rec['stocking']) / $rec['sale'] * 100;
+        print '</td>';
+        print '<td>';
         print $rec['shop'];
         print '</td>';
         print '<td>';
         print $rec['date'];
+        print '</td>';
+        print '<td>';
+        print $rec['saledate'];
         print '</td>';
         print '<td>';
         print $rec['remarks'];
@@ -74,6 +90,7 @@
     
     
     print '</table>';
+    print'<input type="submit" value="参照" name="disp">';
     print'<input type="submit" value="追加" name="add">';
     print'<input type="submit" value="修正" name="edit">';
     print'<input type="submit" value="削除" name="delete">';
@@ -88,7 +105,10 @@
     }
     ?>
     
-    <a href="hurugi_download.php">ダウンロードへ</a>
+    <br />
+    <a href="hurugi_download.php">購入月からダウンロード</a>
+    <br />
+    <a href="saledate_download.php">販売日からダウンロード</a>
     
     <!--<p>仕入れ管理一覧</p>-->
     <!--<table border="1">-->

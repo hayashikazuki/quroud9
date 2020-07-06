@@ -14,6 +14,8 @@
     
     $post = sanitize($_POST);
     $hurugi_code=$post['code'];
+    $hurugi_name=$post['name'];
+    $hurugi_gazou_name=$post['gazou_name'];
     
     $dsn='mysql:dbname=hurugi_keisan;host=localhost;charset=utf8';
     $user='root';
@@ -27,6 +29,11 @@
     $stmt->execute($data);
     
     $dbh = null;
+    
+    if($hurugi_gazou_name != '')
+    {
+        unlink('./gazou/'.$hurugi_gazou_name);
+    }
     
     }
     catch(Exception $e)

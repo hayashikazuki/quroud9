@@ -21,7 +21,7 @@
     $dbh = new PDO($dsn,$user,$password);
     $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
     
-    $sql = 'SELECT name,stocking,sale,shop,date,remarks FROM hurugi_product WHERE substr(date,1,4)=? AND substr(date,6,2)=?';
+    $sql = 'SELECT namecode,name,stocking,expext,sale,shop,date,saledate,remarks FROM hurugi_product WHERE substr(date,1,4)=? AND substr(date,6,2)=?';
     $stmt = $dbh->prepare($sql);
     $data[] = $year;
     $data[] = $month;
@@ -29,7 +29,7 @@
     
     $dbh = null;
     
-    $csv.='商品名,仕入額,販売額,利益,仕入先,購入日,備考';
+    $csv.='商品コード,商品名,仕入額,販売予想額,販売額,利益,利益率,仕入先,購入日,販売日,備考';
     $csv.="\n";
     
     while(true)
@@ -39,17 +39,25 @@
         {
             break;
         }
+        $csv.= $rec['namecode'];
+        $csv.= ",";
         $csv.= $rec['name'];
         $csv.= ",";
         $csv.= $rec['stocking'];
+        $csv.= ",";
+        $csv.= $rec['expext'];
         $csv.= ",";
         $csv.= $rec['sale'];
         $csv.= ",";
         $csv.= $rec['sale']-$rec['stocking'];
         $csv.= ",";
+        $csv.= ($rec['sale']-$rec['stocking']) / $rec['sale'] * 100;
+        $csv.= ",";
         $csv.= $rec['shop'];
         $csv.= ",";
         $csv.= $rec['date'];
+        $csv.= ",";
+        $csv.= $rec['saledate'];
         $csv.= ",";
         $csv.= $rec['remarks'];
         $csv.= "\n";

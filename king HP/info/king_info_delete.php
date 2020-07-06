@@ -1,14 +1,19 @@
-<!DOCTYPE html>
-<html lang="ja">
-    <head>
-        <meta charset="UTF-8">
-        <title>CONTACT管理ページ</title>
-    </head>
-    <body>
-    
-    <?php
-    
-    try
+<?php
+session_start();
+session_regenerate_id(true);
+if(isset($_SESSION['login'])==false)
+{
+    print'ログインできません。<br />';
+    print'<a href="../staff_login/staff_login.html">ログイン画面へ</a>';
+    exit();
+}
+else
+{
+    print $_SESSION['staff_name'];
+    print'さんログイン中<br />';
+    print'<br />';
+}
+try
     {
     
     $king_code=$_GET['kingcode'];
@@ -37,27 +42,41 @@
         print'ただいま障害により大変ご迷惑をお掛けしております。';
         exit();
     }
-    
-    ?>
-    
-    ご依頼者削除<br />
-    <br />
-    受付コード<br />
-    <?php print $king_code; ?>
-    <br />
-    ご依頼者名<br />
-    <?php print $king_name; ?>
-    <br />
-    メールアドレス<br />
-    <?php print $king_email; ?>
-    <br />
-    このご依頼者を削除してよろしいですか？<br />
-    <br />
+?>
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>CONTACT管理ページ</title>
+        <link rel="stylesheet" href="king_many_info.css"/>
+        <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.0.10/font-awesome-animation.css" type="text/css" media="all" />
+    </head>
+    <body>
+    <section class="delete">
+    <p>ご依頼者削除</p>
+        <ul class="deleteinfo">
+            <li>
+                <p>ご依頼者コード：<?php print $king_code;; ?></p>
+            </li>
+            <li>
+                <p>ご依頼者名：<?php print $king_name; ?></p>
+            </li>
+            <li>
+                <p>メールアドレス：<?php print $king_email; ?></p>
+            </li>
+            <li>
+                <p>このご依頼者を削除してよろしいですか？</p>
+            </li>
+        </ul>
     <form method="post" action="king_info_delete_done.php">
     <input type="hidden" name="code" value="<?php print $king_code; ?>">
-    <input type="button" onclick="history.back()" value="戻る">
-    <input type="submit" value="OK">
+    <input type="hidden" name="name" value="<?php print $king_name; ?>">
+    <input type="button" onclick="history.back()" value="戻る" class="btn">
+    <input type="submit" value="OK" class="btn">
     </form>
-    
+    </section>
+
     </body>
 </html>

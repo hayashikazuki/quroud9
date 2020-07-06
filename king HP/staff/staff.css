@@ -1,0 +1,159 @@
+.add{
+    width:100%;
+}
+
+.add > p{
+    letter-spacing:2px;
+    border:1px solid black;
+    padding:1px;
+    width:250px;
+    text-align:center;
+    margin:50px auto;
+    color:white;
+    background:black;
+}
+
+.addstaff{
+    font-size:12px;
+    width:250px;
+    margin:50px auto;
+    list-style:none;
+    padding:0;
+}
+
+.btn{
+    width:100px;
+    display:block;
+    margin:30px auto;
+}
+
+.addcheck,.editcheck{
+    width:100%;
+}
+
+.addcheck p,.editcheck p{
+    line-height:30px;
+    font-size:15px;
+    letter-spacing:1px;
+    text-align:center;
+}
+
+.done{
+    margin-top:100px;
+    width:100%;
+    text-align:center;
+}
+
+.done p{
+    letter-spacing:2px;
+}
+
+.done a{
+    width:100px;
+    background:black;
+    letter-spacing:1px;
+    text-decoration:none;
+    color:white;
+    display:block;
+    padding:3px;
+    margin:100px auto;
+}
+
+.done a:hover{
+    opacity:0.7;
+}
+
+.edit{
+    width:100%;
+}
+
+.edit > p{
+    letter-spacing:2px;
+    border:1px solid black;
+    padding:1px;
+    width:250px;
+    text-align:center;
+    margin:50px auto;
+    color:white;
+    background:black;
+}
+
+.editstaff{
+    font-size:12px;
+    width:250px;
+    margin:50px auto;
+    list-style:none;
+    padding:0;
+}
+
+.delete{
+    width:100%;
+}
+
+.delete > p{
+    letter-spacing:2px;
+    border:1px solid black;
+    padding:1px;
+    width:250px;
+    text-align:center;
+    margin:50px auto;
+    color:white;
+    background:black;
+}
+
+.deletestaff{
+    font-size:12px;
+    width:250px;
+    margin:50px auto;
+    list-style:none;
+    padding:0;
+}
+
+.list{
+    width:100%;
+    text-align:center;
+}
+
+.list > p{
+    letter-spacing:2px;
+    border:1px solid black;
+    padding:1px;
+    width:300px;
+    text-align:center;
+    margin:50px auto;
+    color:white;
+    background:black;
+}
+
+.staff{
+    font-size:13px;
+    letter-spacing:2px;
+}
+
+.list a{
+    width:200px;
+    background:black;
+    letter-spacing:1px;
+    text-decoration:none;
+    color:white;
+    display:block;
+    padding:3px;
+    margin:0 auto;
+    text-align:center;
+}
+
+.list a:hover{
+    opacity:0.7;
+}
+
+.listmenu{
+    display:flex;
+    width:250px;
+    margin:50px auto;
+    justify-content:space-between;
+}
+
+.listbtn{
+    width:70px;
+    display:block;
+}

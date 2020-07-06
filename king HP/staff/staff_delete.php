@@ -13,18 +13,8 @@ else
     print'さんログイン中<br />';
     print'<br />';
 }
-?>
-<!DOCTYPE html>
-<html lang="ja">
-    <head>
-        <meta charset="UTF-8">
-        <title>CONTACT管理ページ</title>
-    </head>
-    <body>
-    
-    <?php
-    
-    try
+
+try
     {
     
     $staff_code=$_GET['staffcode'];
@@ -51,24 +41,39 @@ else
         print'ただいま障害により大変ご迷惑をお掛けしております。';
         exit();
     }
+?>
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>CONTACT管理ページ</title>
+        <link rel="stylesheet" href="staff.css"/>
+        <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.0.10/font-awesome-animation.css" type="text/css" media="all" />
+    </head>
+    <body>
     
-    ?>
-    
-    スタッフ削除<br />
-    <br />
-    スタッフコード<br />
-    <?php print $staff_code; ?>
-    <br />
-    スタッフ名<br />
-    <?php print $staff_name; ?>
-    <br />
-    このスタッフを削除してよろしいですか？<br />
-    <br />
+    <section class="delete">
+    <p>スタッフ削除</p>
+        <ul class="deletestaff">
+            <li>
+                <p>スタッフコード:<?php print $staff_code; ?></p>
+            </li>
+            <li>
+                <p>スタッフ名: <?php print $staff_name; ?></p>
+            </li>
+            <li>
+                <p>このスタッフを削除してよろしいですか？</p>
+            </li>
+        </ul>
     <form method="post" action="staff_delete_done.php">
     <input type="hidden" name="code" value="<?php print $staff_code; ?>">
-    <input type="button" onclick="history.back()" value="戻る">
-    <input type="submit" value="OK">
+    <input type="hidden" name="name" value="<?php print $staff_name; ?>">
+    <input type="button" onclick="history.back()" value="戻る" class="btn">
+    <input type="submit" value="OK" class="btn">
     </form>
+    </section>
     
     </body>
 </html>

@@ -13,18 +13,8 @@ else
     print'さんログイン中<br />';
     print'<br />';
 }
-?>
-<!DOCTYPE html>
-<html lang="ja">
-    <head>
-        <meta charset="UTF-8">
-        <title>CONTACT管理ページ</title>
-    </head>
-    <body>
-    
-    <?php
-    
-    try
+
+try
     {
     
     $dsn = 'mysql:dbname=king_hp_contact;host=localhost;charset=utf8';
@@ -39,36 +29,55 @@ else
     
     $dbh = null;
     
-    print'ご依頼者一覧<br /><br />';
-    
-    print'<form method="post" action="king_info_branch.php">';
-    while(true)
-    {
-        $rec = $stmt->fetch(PDO::FETCH_ASSOC);
-        if($rec == false)
-        {
-            break;
-        }
-        print'<input type="radio" name="kingcode" value="'.$rec['code'].'">';
-        print $rec['date'].'<br />';
-        print 'ご依頼者名:'.$rec['name'].'<br />';
-        print 'メールアドレス:'.$rec['email'].'<br />';
-        print '件名:'.$rec['subject'].'<br />';
-        print'<br />';
-    }
-    print'<input type="submit" name="disp" value="参照">';
-    print'<input type="submit" name="delete" value="削除">';
-    print'</form>';
-    }
+}
     catch(Exception $e)
     {
         print'ただいま障害により大変ご迷惑をお掛けしております。';
         exit();
     }
+?>
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>CONTACT管理ページ</title>
+        <link rel="stylesheet" href="king_many_info.css"/>
+        <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.0.10/font-awesome-animation.css" type="text/css" media="all" />
+    </head>
+    <body>
     
-    ?>
+    <section class="list"> 
     
-    <br />
-    <a href="../staff_login/staff_top.php">トップメニューへ</a><br />
+            <p>ご依頼者一覧</p>
+            
+            <form method="post" action="king_info_branch.php">
+                <div class="kinginfo">
+                <?php
+                while(true)
+                {
+                $rec = $stmt->fetch(PDO::FETCH_ASSOC);
+                if($rec == false)
+                {
+                    break;
+                }
+                print '<p class="king"><input type="radio" name="kingcode" value="'.$rec['code'].'">ご依頼者コード：'.$rec['code'].'</p>';
+                print '<p class="king">ご依頼者名：'.$rec['name'].'</p>';
+                print '<p class="king">メールアドレス：'.$rec['email'].'</p>';
+                print '<p class="king">ご依頼日時：'.$rec['date'].'</p>';
+                print '<p class="king">件名：'.$rec['subject'].'</p>';
+                print '<p class="lastking"></p>';
+                print '<br />';
+                }
+                ?>
+                </div>
+            <div class="listmenu">
+                <input type="submit" name="disp" value="参照" class="listbtn">
+                <input type="submit" name="delete" value="削除" class="listbtn">
+            </div>
+            </form>
+            <a href="../staff_login/staff_top.php">トップメニューへ</a>
+    </section>
     </body>
 </html>

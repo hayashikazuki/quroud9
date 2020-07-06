@@ -20,20 +20,33 @@
     $dbh = new PDO($dsn,$user,$password);
     $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
     
-    $sql ='SELECT name,stocking,sale,shop,date,remarks FROM hurugi_product WHERE code=?';
+    $sql ='SELECT namecode,name,stocking,expect,sale,shop,date,saledate,remarks,gazou FROM hurugi_product WHERE code=?';
     $stmt = $dbh->prepare($sql);
     $data[]=$hurugi_code;
     $stmt->execute($data);
     
     $rec = $stmt->fetch(PDO::FETCH_ASSOC);
+    $hurugi_namecode=$rec['namecode'];
     $hurugi_name=$rec['name'];
     $hurugi_stocking=$rec['stocking'];
+    $hurugi_expect=$rec['expect'];
     $hurugi_sale=$rec['sale'];
     $hurugi_shop=$rec['shop'];
     $hurugi_date=$rec['date'];
+    $hurugi_saledate=$rec['saledate'];
     $hurugi_remarks=$rec['remarks'];
+    $hurugi_gazou_name=$rec['gazou'];
     
     $dbh=null;
+    
+    if($hurugi_gazou_name=='')
+    {
+        $disp_gazou='';
+    }
+    else
+    {
+        $disp_gazou='<img src="./gazou/'.$hurugi_gazou_name.'">';
+    }
     
     }
     catch(Exception $e)
@@ -45,16 +58,14 @@
     
     <p>商品修正</p>
     <?php print $hurugi_name; ?><br />
+    <br />
+    <?php print $disp_gazou; ?><br />
     <p>を消去してもよろしいですか？</p>
     
     <form action="hurugi_delete_done.php" method="post">
     <input type="hidden" name="code" value="<?php print $hurugi_code; ?>">
     <input type="hidden" name="name" value="<?php print $hurugi_name; ?>">
-    <input type="hidden" name="stocking" value="<?php print $hurugi_stocking; ?>">
-    <input type="hidden" name="sale" value="<?php print $hurugi_sale; ?>">
-    <input type="hidden" name="shop" value="<?php print $hurugi_shop; ?>">
-    <input type="hidden" name="date" value="<?php print $hurugi_date; ?>">
-    <input type="hidden" name="remarks" value="<?php print $hurugi_remarks; ?>">
+    <input type="hidden" name="gazou_name" value="<?php print $hurugi_gazou_name; ?>">
     <br />
     <input type="button" onclick="history.back()" value="戻る">
     <input type="submit" value="OK">

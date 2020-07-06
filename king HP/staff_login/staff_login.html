@@ -2,20 +2,31 @@
 <html lang="ja">
     <head>
         <meta charset="UTF-8">
-        <title>ログイン</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>CONTACT管理ページ</title>
+        <link rel="stylesheet" href="staff_login.css"/>
+        <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.0.10/font-awesome-animation.css" type="text/css" media="all" />
     </head>
     <body>
         
-        スタッフログイン<br />
-        <br />
+        <section class="login">
+        <p class=stafflogin>スタッフログイン</p>
+
         <form method="post" action="staff_login_check.php">
-            スタッフコード<br />
-            <input type="text" name="code"><br />
-            パスワード<br />
-            <input type="password" name="pass"><br />
-            <br />
-            <input type="submit" value="ログイン">
+            <ul class=staffinput>
+                <li>
+                    <p>スタッフコード</p>
+                    <input type="text" name="code"><br />
+                </li>
+                <li>
+                    <p>パスワード</p>
+                    <input type="password" name="pass">
+                </li>
+            </ul>
+            <input type="submit" value="ログイン" class="loginbtn">
         </form>
+        </section>
     
     
     </body>
