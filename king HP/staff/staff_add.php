@@ -3,15 +3,13 @@ session_start();
 session_regenerate_id(true);
 if(isset($_SESSION['login'])==false)
 {
-    print'ログインできません。<br />';
-    print'<a href="../staff_login/staff_login.html">ログイン画面へ</a>';
+    $_SESSION['error']='ログアウトしています。再度ログインしてください。';
+    header('Location:../staff_login/staff_login.php');
     exit();
 }
 else
 {
-    print $_SESSION['staff_name'];
-    print'さんログイン中<br />';
-    print'<br />';
+    $login = $_SESSION['staff_name'];
 }
 ?>
 <!DOCTYPE html>
@@ -25,6 +23,10 @@ else
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.0.10/font-awesome-animation.css" type="text/css" media="all" />
     </head>
     <body>
+        
+        <div class="loginarea">
+            <p><?php print $login; ?>さん、ログイン中</p>
+        </div>
         
         <section class="add">
             <p>スタッフ追加</p>

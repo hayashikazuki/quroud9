@@ -6,25 +6,17 @@
     letter-spacing:2px;
     border:1px solid black;
     padding:1px;
-    width:250px;
+    width:300px;
     text-align:center;
-    margin:50px auto;
     color:white;
     background:black;
 }
 
 .addstaff{
-    font-size:12px;
-    width:250px;
-    margin:50px auto;
+    font-size:15px;
+    width:300px;
     list-style:none;
     padding:0;
-}
-
-.btn{
-    width:100px;
-    display:block;
-    margin:30px auto;
 }
 
 .addcheck,.editcheck{
@@ -35,13 +27,13 @@
     line-height:30px;
     font-size:15px;
     letter-spacing:1px;
-    text-align:center;
+    margin-bottom:20px;
 }
 
 .done{
-    margin-top:100px;
+    margin-top:50px;
     width:100%;
-    text-align:center;
+    text-align:left;
 }
 
 .done p{
@@ -56,7 +48,7 @@
     color:white;
     display:block;
     padding:3px;
-    margin:100px auto;
+    text-align:center;
 }
 
 .done a:hover{
@@ -71,17 +63,15 @@
     letter-spacing:2px;
     border:1px solid black;
     padding:1px;
-    width:250px;
+    width:300px;
     text-align:center;
-    margin:50px auto;
     color:white;
     background:black;
 }
 
 .editstaff{
-    font-size:12px;
-    width:250px;
-    margin:50px auto;
+    font-size:15px;
+    width:300px;
     list-style:none;
     padding:0;
 }
@@ -94,24 +84,46 @@
     letter-spacing:2px;
     border:1px solid black;
     padding:1px;
-    width:250px;
+    width:300px;
     text-align:center;
-    margin:50px auto;
     color:white;
     background:black;
 }
 
 .deletestaff{
-    font-size:12px;
-    width:250px;
-    margin:50px auto;
+    font-size:15px;
+    width:300px;
     list-style:none;
     padding:0;
 }
 
+.disp{
+    width:100%;
+}
+
+.disp > p{
+    letter-spacing:2px;
+    border:1px solid black;
+    padding:1px;
+    width:300px;
+    text-align:center;
+    color:white;
+    background:black;
+}
+
+.dispstaff{
+    font-size:15px;
+    width:300px;
+    list-style:none;
+    padding:0;
+    margin:30px 0 30px 0;
+}
+
+.dispstaff li{
+    margin-bottom:20px;
+}
 .list{
     width:100%;
-    text-align:center;
 }
 
 .list > p{
@@ -120,40 +132,73 @@
     padding:1px;
     width:300px;
     text-align:center;
-    margin:50px auto;
     color:white;
     background:black;
-}
-
-.staff{
-    font-size:13px;
-    letter-spacing:2px;
+    margin-left:10px;
 }
 
 .list a{
     width:200px;
-    background:black;
-    letter-spacing:1px;
+    letter-spacing:3px;
     text-decoration:none;
-    color:white;
+    color:black;
     display:block;
-    padding:3px;
-    margin:0 auto;
-    text-align:center;
+    margin-left:10px;
 }
 
 .list a:hover{
     opacity:0.7;
 }
 
-.listmenu{
-    display:flex;
-    width:250px;
-    margin:50px auto;
-    justify-content:space-between;
+.listbtn{
+    width:80px;
+    display:block;
+    margin:10px 0 10px 10px;
 }
 
-.listbtn{
-    width:70px;
+.loginarea_list{
+    width:300px;
+    border:1px solid black;
+    text-align:center;
+    background:#EEEEEE;
+    margin:10px 0 10px 10px;
+}
+
+.loginarea_list p{
+    font-size:13px;
+    font-weit:bold;
+    letter-spacing:2px;
+    margin:0;
+}
+
+.staff-list{
+    width:400px;
+}
+
+.btn{
+    width:100px;
     display:block;
+    margin-top:10px;
+}
+
+.loginarea{
+    width:300px;
+    border:1px solid black;
+    text-align:center;
+    background:#EEEEEE;
+}
+
+.loginarea p{
+    font-size:13px;
+    font-weit:bold;
+    letter-spacing:2px;
+    margin:0;
+}
+
+@media screen and (max-width:559px) {
+    /*.add,.addstaff,.addcheck,.editcheck,.done,.done a,.list,.list a,.listbtn,.loginarea_list,*/
+    /*.edit,.delete,.disp,.dispstaff,.btn,.loginarea*/
+    /*{*/
+    /*    margin:0 auto;*/
+    /*}*/
 }

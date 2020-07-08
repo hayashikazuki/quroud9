@@ -73,6 +73,12 @@
         <li>備考：<?php print $hurugi_remarks; ?></li>
     </ul>
     
+    <form method="post" action="hurugi_branch.php">
+        <input type="hidden" name="hurugicode" value="<?php print $hurugi_code; ?>">
+        <input type="submit" value="修正" name="edit">
+        <input type="submit" value="削除" name="delete">
+    </form>
+    
     
     <a href="hurugi_list.php">一覧へ戻る</a>
     

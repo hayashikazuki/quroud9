@@ -3,8 +3,8 @@ session_start();
 session_regenerate_id(true);
 if(isset($_SESSION['login'])==false)
 {
-    print'ログインできません。<br />';
-    print'<a href="../staff_login/staff_login.html">ログイン画面へ</a>';
+    $_SESSION['error']='ログアウトしています。再度ログインしてください。';
+    header('Location:../staff_login/staff_login.php');
     exit();
 }
 else
@@ -25,24 +25,7 @@ else
     </head>
     <body>
         
-        <?php
-        // session_start();
-        // session_regenerate_id(true);
-        // if(isset($_SESSION['login'])==false)
-        // {
-        //     print'<div class="loginarea">';
-        //     print'<p>ログインできません。</p>';
-        //     print'<a href="../staff_login/staff_login.html">ログイン画面へ</a>';
-        //     print'</div>';
-        //     exit();
-        // }
-        // else
-        // {
-        //     print'<div class="loginarea>';
-        //     print '<p>'.$_SESSION['staff_name'].'さんログイン中</p>';
-        //     print'</div>';
-        // }
-        ?>
+        
         
         <div class="loginarea">
             <p><?php print $login; ?>さん、ログイン中</p>

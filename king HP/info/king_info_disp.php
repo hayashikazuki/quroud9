@@ -3,15 +3,13 @@ session_start();
 session_regenerate_id(true);
 if(isset($_SESSION['login'])==false)
 {
-    print'ログインできません。<br />';
-    print'<a href="../staff_login/staff_login.html">ログイン画面へ</a>';
+    $_SESSION['error']='ログアウトしています。再度ログインしてください。';
+    header('Location:../staff_login/staff_login.php');
     exit();
 }
 else
 {
-    print $_SESSION['staff_name'];
-    print'さんログイン中<br />';
-    print'<br />';
+    $login = $_SESSION['staff_name'];
 }
  try
     {
@@ -57,43 +55,38 @@ else
 
     </head>
     <body>
+        
+        <div class="loginarea">
+            <p><?php print $login; ?>さん、ログイン中</p>
+        </div>
         <section class="disp">
             <p>ご依頼者情報参照</p>
             <ul class="dispinfo">
                 <li>
-                    <p><受付コード></p>
-                    <p><?php print $king_code; ?></p>
-                    <br />
+                    <p>・受付コード&nbsp;&nbsp;:&nbsp;&nbsp;<?php print $king_code; ?></p>
                 </li>
                 <li>
-                    <p><ご依頼者名></p>
-                    <p><?php print $king_name; ?></p>
-                    <br />
+                    <p>・ご依頼者名&nbsp;&nbsp;:&nbsp;&nbsp;<?php print $king_name; ?></p>
                 </li>
                 <li>
-                    <p> <メールアドレス></p>
-                    <p><?php print $king_email; ?> </p>
-                    <br />
+                    <p>・メールアドレス&nbsp;&nbsp;:&nbsp;&nbsp;<?php print $king_email; ?></p>
                 </li>
                 <li>
-                    <p><ご依頼日時></p>
-                    <p><?php print $king_date; ?></p>
-                    <br />
+                    <p>・ご依頼日時&nbsp;&nbsp;:&nbsp;&nbsp;<?php print $king_date; ?></p>
                 </li>
                 <li>
-                    <p><件名></p>
-                    <p><?php print $king_subject; ?> </p>
-                    <br />
+                    <p>・件名&nbsp;&nbsp;:&nbsp;&nbsp;<?php print $king_subject; ?></p>
                 </li>
                 <li>
-                    <p><ご依頼者からのメッセージ></p>
-                    <p><?php print $king_messages; ?> </p>
-                    <br />
+                    <p>・メッセージ</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;<?php print $king_messages; ?> </p>
                 </li>
             </ul>
             
-            <form>
+            <form method="post" action="king_info_delete.php">
+                <input type="hidden" name="kingcode" value="<?php print $king_code; ?>">
                 <input type="button" onclick="history.back()" value="戻る" class="btn">
+                <input type="submit" name="delete" value="削除" class="btn">
             </form>
         </section>
     

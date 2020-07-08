@@ -6,28 +6,26 @@
     letter-spacing:2px;
     border:1px solid black;
     padding:1px;
-    width:250px;
+    width:300px;
     text-align:center;
-    margin:30px auto;
     color:white;
     background:black;
 }
 
 form{
-    width:250px;
-    margin:60px auto;
+    width:300px;
     text-align:center;
 }
 
 form > p{
     display:block;
-    font-size:13px;
+    font-size:15px;
 }
 
 .btn{
     width:100px;
     display:block;
-    margin:30px auto;
+    margin-top:10px;
 }
 
 .menu{
@@ -38,9 +36,8 @@ form > p{
     letter-spacing:2px;
     border:1px solid black;
     padding:1px;
-    width:250px;
+    width:300px;
     text-align:center;
-    margin:50px auto;
     color:white;
     background:black;
 }
@@ -48,15 +45,15 @@ form > p{
 .selectmenu{
     font-size:15px;
     letter-spacing:1px;
-    width:250px;
-    margin:30px auto;
+    width:300px;
+    margin-left:20px;
     list-style:none;
     padding:0;
 }
 
 .selectmenu li{
     margin-bottom:25px;
-    text-align:center;
+    text-align:left;
 }
 
 .selectmenu a{
@@ -69,8 +66,7 @@ form > p{
 }
 
 .loginarea{
-    width:280px;
-    margin:10px auto 0 auto;
+    width:300px;
     border:1px solid black;
     text-align:center;
     background:#EEEEEE;
@@ -80,5 +76,6 @@ form > p{
     font-size:13px;
     font-weit:bold;
     letter-spacing:2px;
+    margin:0;
 }
 

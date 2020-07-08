@@ -3,15 +3,13 @@ session_start();
 session_regenerate_id(true);
 if(isset($_SESSION['login'])==false)
 {
-    print'ログインできません。<br />';
-    print'<a href="../staff_login/staff_login.html">ログイン画面へ</a>';
+    $_SESSION['error']='ログアウトしています。再度ログインしてください。';
+    header('Location:../staff_login/staff_login.php');
     exit();
 }
 else
 {
-    print $_SESSION['staff_name'];
-    print'さんログイン中<br />';
-    print'<br />';
+    $login = $_SESSION['staff_name'];
 }
 
 require_once('../common/common.php');
@@ -34,6 +32,10 @@ require_once('../common/common.php');
     </head>
     
     <body>
+        
+        <div class="loginarea">
+            <p><?php print $login; ?>さん、ログイン中</p>
+        </div>
         
     <section class="editcheck">
     <?php if($staff_name == '') { ?>
@@ -62,6 +64,7 @@ require_once('../common/common.php');
     <?php } else { ?>
         <?php $staff_pass = md5($staff_pass); ?>
         <form method="post" action="staff_edit_done.php">
+            <input type="hidden" name="code" value="<?php print $staff_code; ?>">
             <input type="hidden" name="name" value="<?php print $staff_name; ?>">
             <input type="hidden" name="pass" value="<?php print $staff_pass; ?>">
             <input type="button" onclick="history.back()" value="戻る" class="btn">

@@ -3,6 +3,7 @@
     <head>
         <meta charaset="UTF-8">
         <title>古着管理アプリ</title>
+        <link rel="stylesheet" href="bootstrap.css"/>
     </head>
     <body>
     <?php
@@ -21,25 +22,32 @@
     
     $dbh = null;
     
-    print '<p>仕入れ管理一覧</p>';
-    print '<table border="1">';
-    print '<tr>';
-    print '<td>商品コード</td>';
-    print '<td>商品名</td>';
-    print '<td>仕入額</td>';
-    print '<td>販売予想額</td>';
-    print '<td>販売額</td>';
-    print '<td>利益</td>';
-    print '<td>利益率</td>';
-    print '<td>仕入先</td>';
-    print '<td>購入日</td>';
-    print '<td>販売日</td>';
-    print '<td>備考</td>';
-    print '</tr>';
     
+    ?>
     
-    print '<form method="post" action="hurugi_branch.php">';
+    <p>仕入れ管理一覧</p>
+    <form method="post" action="hurugi_branch.php">
+        <input type="submit" value="追加" name="add">
+    </form>
+    <a href="hurugi_download.php">購入月からダウンロード</a>
+    <br />
+    <a href="saledate_download.php">販売日からダウンロード</a>
     
+    <table class="table table-bordered">
+        <tr>
+            <td>商品コード</td>
+            <td>商品名</td>
+            <td>仕入額</td>
+            <td>販売予想額</td>
+            <td>販売額</td>
+            <td>利益</td>
+            <td>利益率</td>
+            <td>仕入先</td>
+            <td>購入日</td>
+            <td>販売日</td>
+            <td>備考</td>
+        </tr>
+    <?php
     while(true)
     {
 
@@ -50,11 +58,12 @@
         }
         print '<tr>';
         print '<td>';
-        print'<input type="radio" name="hurugicode" value="'.$rec['code'].'">';
         print $rec['namecode'];
         print '</td>';
         print '<td>';
+        print '<a href="hurugi_disp.php?hurugicode='.$rec['code'].'">';
         print $rec['name'];
+        print '</a>';
         print '</td>';
         print '<td>';
         print $rec['stocking'];
@@ -69,7 +78,7 @@
         print $rec['sale']-$rec['stocking'];
         print '</td>';
         print '<td>';
-        print ($rec['sale']-$rec['stocking']) / $rec['sale'] * 100;
+        print floor(($rec['sale']-$rec['stocking']) / $rec['sale'] * 100);
         print '</td>';
         print '<td>';
         print $rec['shop'];
@@ -83,20 +92,12 @@
         print '<td>';
         print $rec['remarks'];
         print '</td>';
-        print '<br />';
         print '</tr>';
     }
+    ?>
+    </table>
     
-    
-    
-    print '</table>';
-    print'<input type="submit" value="参照" name="disp">';
-    print'<input type="submit" value="追加" name="add">';
-    print'<input type="submit" value="修正" name="edit">';
-    print'<input type="submit" value="削除" name="delete">';
-    print '</form>';
-    
-   
+    <?php
     }
     catch(Exception $e)
     {
@@ -105,22 +106,8 @@
     }
     ?>
     
-    <br />
-    <a href="hurugi_download.php">購入月からダウンロード</a>
-    <br />
-    <a href="saledate_download.php">販売日からダウンロード</a>
     
-    <!--<p>仕入れ管理一覧</p>-->
-    <!--<table border="1">-->
-    <!--    <tr>-->
-    <!--        <td>商品名</td>-->
-    <!--        <td>仕入額</td>-->
-    <!--        <td>販売額</td>-->
-    <!--        <td>利益</td>-->
-    <!--        <td>仕入先</td>-->
-    <!--        <td>購入日</td>-->
-    <!--        <td>備考</td>-->
-    <!--    </tr>-->
-    <!--</table>-->
+    
+    
     </body>
 </html>

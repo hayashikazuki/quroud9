@@ -10,7 +10,15 @@
     </head>
     <body>
         
+        <?php
+        session_start(); // sessionを利用するにはまずsession_start()を行う必要があります。
+        if(isset($_SESSION['error'])==true){
+            $error = $_SESSION['error'];
+        }
+        ?>
+        
         <section class="login">
+        <p><?php print $error; ?></p>
         <p class=stafflogin>スタッフログイン</p>
 
         <form method="post" action="staff_login_check.php">

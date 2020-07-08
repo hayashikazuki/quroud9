@@ -3,61 +3,50 @@
 }
 
 .list > p{
-    letter-spacing:2px;
+    margin:20px 0 10px 10px;
+    letter-spacing:5px;
     border:1px solid black;
-    padding:1px;
+    padding:2px;
     width:300px;
     text-align:center;
-    margin:50px auto;
     color:white;
     background:black;
+}
+
+.loginarea_list{
+    width:300px;
+    border:1px solid black;
+    text-align:center;
+    background:#EEEEEE;
+    margin:10px 0 10px 10px;
+}
+
+.loginarea_list p{
+    font-size:13px;
+    font-weit:bold;
+    letter-spacing:2px;
+    margin:0;
 }
 
 .kinginfo{
-    width:290px;
-    margin:50px auto;
+    width:100%;
+    margin:25px 10px 25px 10px;
 }
 
-.king{
-    font-size:13px;
-    letter-spacing:2px;
-}
-
-.lastking{
-    width:300px;
-    padding-bottom:30px;
-    border-bottom:1px solid black;
-}
-
-
-
-.list a{
+.topmenu{
     width:200px;
-    background:black;
-    letter-spacing:1px;
+    font-weit:bold;
+    letter-spacing:2px;
     text-decoration:none;
-    color:white;
+    margin-left:20px;
+    color:black;
     display:block;
-    padding:3px;
-    margin:50px auto;
-    text-align:center;
 }
 
-.list a:hover{
+.topmenu:hover{
     opacity:0.7;
 }
 
-.listmenu{
-    display:flex;
-    width:250px;
-    margin:50px auto 0 auto;
-    justify-content:space-between;
-}
-
-.listbtn{
-    width:100px;
-    display:block;
-}
 
 .delete{
     width:100%;
@@ -67,29 +56,28 @@
     letter-spacing:2px;
     border:1px solid black;
     padding:1px;
-    width:250px;
+    width:300px;
     text-align:center;
-    margin:50px auto;
     color:white;
     background:black;
 }
 
 .deleteinfo{
-    font-size:13px;
-    width:250px;
-    margin:50px auto;
+    font-size:15px;
+    width:300px;
     list-style:none;
     padding:0;
+    margin-bottom:30px;
 }
 
 .done{
     margin-top:100px;
+    margin-left:20px;
     width:100%;
-    text-align:center;
 }
 
 .done p{
-    letter-spacing:2px;
+    letter-spacing:3px;
 }
 
 .done a{
@@ -100,7 +88,8 @@
     color:white;
     display:block;
     padding:3px;
-    margin:100px auto;
+    text-align:center;
+    margin-left:20px;
 }
 
 .done a:hover{
@@ -117,22 +106,38 @@
     padding:1px;
     width:300px;
     text-align:center;
-    margin:50px auto;
     color:white;
     background:black;
 }
 
 .dispinfo{
-    font-size:13px;
-    width:250px;
-    margin:50px auto;
+    font-size:15px;
+    width:500px;
     list-style:none;
     padding:0;
+    margin-bottom:30px;
+}
+
+.dispinfo li{
+    margin-top:25px;
 }
 
 .btn{
     width:100px;
     display:block;
-    margin:30px auto;
+    margin-top:10px;
 }
 
+.loginarea{
+    width:300px;
+    border:1px solid black;
+    text-align:center;
+    background:#EEEEEE;
+}
+
+.loginarea p{
+    font-size:13px;
+    font-weit:bold;
+    letter-spacing:2px;
+    margin:0;
+}

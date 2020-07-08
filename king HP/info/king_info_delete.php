@@ -3,20 +3,22 @@ session_start();
 session_regenerate_id(true);
 if(isset($_SESSION['login'])==false)
 {
-    print'ログインできません。<br />';
-    print'<a href="../staff_login/staff_login.html">ログイン画面へ</a>';
+    $_SESSION['error']='ログアウトしています。再度ログインしてください。';
+    header('Location:../staff_login/staff_login.php');
     exit();
 }
 else
 {
-    print $_SESSION['staff_name'];
-    print'さんログイン中<br />';
-    print'<br />';
+   $login = $_SESSION['staff_name'];
 }
 try
     {
+        
+    require_once('../common/common.php');
     
-    $king_code=$_GET['kingcode'];
+    $post = sanitize($_POST);
+    
+    $king_code=$post['kingcode'];
     
     $dsn = 'mysql:dbname=king_hp_contact;host=localhost;charset=utf8';
     $user = 'root';
@@ -54,6 +56,10 @@ try
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.0.10/font-awesome-animation.css" type="text/css" media="all" />
     </head>
     <body>
+        
+    <div class="loginarea">
+        <p><?php print $login; ?>さん、ログイン中</p>
+    </div>
     <section class="delete">
     <p>ご依頼者削除</p>
         <ul class="deleteinfo">
