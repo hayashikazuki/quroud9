@@ -1,3 +1,35 @@
+<?php
+    
+    try
+    {
+        
+    require_once('../common/common.php');
+    
+    $year=$_POST['year'];
+    $month=$_POST['month'];
+    
+    $dsn='mysql:dbname=hurugi_keisan;host=localhost;charset=utf8';
+    $user='root';
+    $password='';
+    $dbh = new PDO($dsn,$user,$password);
+    $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+    
+    $sql = 'SELECT namecode,name,stocking,expect,sale,shop,date,saledate,remarks FROM hurugi_product 
+    WHERE substr(date,1,4)=? AND substr(date,6,2)=?';
+    $stmt = $dbh->prepare($sql);
+    $data[] = $year;
+    $data[] = $month;
+    $stmt->execute($data);
+    
+    $dbh = null;
+    
+    }
+    catch(Exception $e)
+    {
+        print 'ただいま障害により大変ご迷惑をお掛けしております。';
+        exit();
+    }
+    ?>
 <!DOCTTYPE>
 <html lang="ja">
     <head>
@@ -6,45 +38,11 @@
         <link rel="stylesheet" href="bootstrap.css"/>
     </head>
     <body>
-    <?php
+        
+    <p>販売月表示</p>
+    <p><?php print $year; ?>年&nbsp;&nbsp;<?php print $month; ?>月</p>
     
-    try
-    {
-    $dsn='mysql:dbname=hurugi_keisan;host=localhost;charset=utf8';
-    $user='root';
-    $password='';
-    $dbh = new PDO($dsn,$user,$password);
-    $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-    
-    $sql = 'SELECT code,namecode,name,stocking,expect,sale,shop,date,saledate,remarks FROM hurugi_product WHERE 1';
-    $stmt = $dbh->prepare($sql);
-    $stmt->execute();
-    
-    $dbh = null;
-    
-    
-    ?>
-    
-    <?php
-    require_once('../common/common.php');
-    ?>
-    
-    <p>仕入れ管理一覧</p>
-    <form method="post" action="hurugi_branch.php">
-        <input type="submit" value="追加" name="add">
-    </form>
-    <a href="hurugi_download.php">購入月からダウンロード</a>
-    <br />
-    <a href="saledate_download.php">販売日からダウンロード</a>
-    
-    <form method="post" action="hurugi_stockingmonth.php">
-        <p>購入月&nbsp;&nbsp;<?php pulldown_year(); ?>&nbsp;&nbsp;年&nbsp;&nbsp;<?php pulldown_month(); ?>&nbsp;&nbsp;月&nbsp;&nbsp;&nbsp;<input type="submit" value="表示"></p>
-    </form>
-    
-    <form method="post" action="hurugi_salemonth.php">
-        <p>販売月&nbsp;&nbsp;<?php pulldown_year(); ?>&nbsp;&nbsp;年&nbsp;&nbsp;<?php pulldown_month(); ?>&nbsp;&nbsp;月&nbsp;&nbsp;&nbsp;<input type="submit" value="表示"></p>
-    </form>
-    
+    <a href="hurugi_list.php">一覧へ戻る</a>
     <table class="table table-bordered">
         <tr>
             <td>商品コード</td>
@@ -108,18 +106,6 @@
     }
     ?>
     </table>
-    
-    <?php
-    }
-    catch(Exception $e)
-    {
-        print 'ただいま障害により大変ご迷惑をお掛けしております。';
-        exit();
-    }
-    ?>
-    
-    
-    
-    
+
     </body>
 </html>

@@ -21,7 +21,8 @@
     $dbh = new PDO($dsn,$user,$password);
     $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
     
-    $sql = 'SELECT namecode,name,stocking,expext,sale,shop,date,saledate,remarks FROM hurugi_product WHERE substr(date,1,4)=? AND substr(date,6,2)=?';
+    $sql = 'SELECT namecode,name,stocking,expect,sale,shop,date,saledate,remarks FROM hurugi_product 
+    WHERE substr(date,1,4)=? AND substr(date,6,2)=?';
     $stmt = $dbh->prepare($sql);
     $data[] = $year;
     $data[] = $month;

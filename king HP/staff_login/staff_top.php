@@ -1,50 +1,50 @@
 <?php
-session_start();
-session_regenerate_id(true);
-if(isset($_SESSION['login'])==false)
-{
-    $_SESSION['error']='ログアウトしています。再度ログインしてください。';
-    header('Location:../staff_login/staff_login.php');
-    exit();
-}
-else
-{
-    $login = $_SESSION['staff_name'];
+// session_start();
+// session_regenerate_id(true);
+// if(isset($_SESSION['login'])==false)
+// {
+//     $_SESSION['error']='ログアウトしています。再度ログインしてください。';
+//     header('Location:../staff_login/staff_login.php');
+//     exit();
+// }
+// else
+// {
+//     $login = $_SESSION['staff_name'];
     
-}
+// }
 ?>
 <!DOCTYPE html>
-<html lang="ja">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width,initial-scale=1">
-        <title>CONTACT管理ページ</title>
-        <link rel="stylesheet" href="staff_login.css"/>
-        <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.0.10/font-awesome-animation.css" type="text/css" media="all" />
-    </head>
-    <body>
+<!--<html lang="ja">-->
+<!--    <head>-->
+<!--        <meta charset="UTF-8">-->
+<!--        <meta name="viewport" content="width=device-width,initial-scale=1">-->
+<!--        <title>CONTACT管理ページ</title>-->
+<!--        <link rel="stylesheet" href="staff_login.css"/>-->
+<!--        <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">-->
+<!--        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.0.10/font-awesome-animation.css" type="text/css" media="all" />-->
+<!--    </head>-->
+<!--    <body>-->
         
         
         
-        <div class="loginarea">
-            <p><?php print $login; ?>さん、ログイン中</p>
-        </div>
+<!--        <div class="loginarea">-->
+<!--            <p><?php print $login; ?>さん、ログイン中</p>-->
+<!--        </div>-->
         
         
         
         
-        <section class="menu">
-            <p class="topmenu">トップメニュー</p>
-            <ul class="selectmenu">
-                <li><a href="../staff/staff_list.php">スタッフ管理</a></li>
-                <br />
-                <li><a href="../info/king_info_list.php">ご依頼者管理</a></li>
-                <br />
-                <li><a href="../order/order_download.php">ご依頼者情報ダウンロード</a></li>
-                <br />
-                <li><a href="staff_logout.php">ログアウト</a></li>
-            </ul>
-        </section>
-    </body>
-</html>
+<!--        <section class="menu">-->
+<!--            <p class="topmenu">トップメニュー</p>-->
+<!--            <ul class="selectmenu">-->
+<!--                <li><a href="../staff/staff_list.php">スタッフ管理</a></li>-->
+<!--                <br />-->
+<!--                <li><a href="../info/king_info_list.php">ご依頼者管理</a></li>-->
+<!--                <br />-->
+<!--                <li><a href="../order/order_download.php">ご依頼者情報ダウンロード</a></li>-->
+<!--                <br />-->
+<!--                <li><a href="staff_logout.php">ログアウト</a></li>-->
+<!--            </ul>-->
+<!--        </section>-->
+<!--    </body>-->
+<!--</html>-->

@@ -2,6 +2,10 @@
     width:100%;
 }
 
+.login > p{
+    text-align:center;
+}
+
 .topmenu,.stafflogin{
     letter-spacing:2px;
     border:1px solid black;

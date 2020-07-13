@@ -47,14 +47,36 @@ try
     </head>
     <body>
         
-        <div class="loginarea_list">
-            <p><?php print $login; ?>さん、ログイン中</p>
-        </div>
+    <?php
+    require_once('../common/common.php');
+    ?>
+        
+    <section class="topmain">
+        
+        <section class="menu">
+            <div class="toplist-loginarea">
+                <p><?php print $login; ?>さん、ログイン中</p>
+            </div>
+            <p class="toplistmenu">トップメニュー</p>
+            <ul class="selectmenu">
+                <li><a href="../staff/staff_list.php">スタッフ管理</a></li>
+                <br />
+                <!--<li><a href="../info/king_info_list.php">ご依頼者管理</a></li>-->
+                <!--<br />-->
+                <li><a href="../order/order_download.php">ご依頼者情報ダウンロード</a></li>
+                <br />
+                <li><a href="../staff_login/staff_logout.php">ログアウト</a></li>
+            </ul>
+        </section>
     
         <section class="list"> 
     
-            <p>ご依頼者一覧</p>
-            <a href="../staff_login/staff_top.php" class="topmenu">トップメニューへ</a>
+            <p>・ご依頼者一覧</p>
+            <br />
+            <form method="post" action="king_info_dispmonth.php">
+                <p><?php pulldown_year(); ?>&nbsp;&nbsp;年&nbsp;&nbsp;<?php pulldown_month(); ?>&nbsp;&nbsp;月&nbsp;&nbsp;&nbsp;<input type="submit" value="表示"></p>
+            </form>
+            <!--<a href="../staff_login/staff_top.php" class="topmenu">トップメニューへ</a>-->
             <div class="kinginfo">
                 
                 <table class="table table-striped">
@@ -89,6 +111,7 @@ try
             
                 </table>   
             </div>
+        </section>
     </section>
     </body>
 </html>

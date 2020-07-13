@@ -1,37 +1,72 @@
-.list{
+
+.topmain{
     width:100%;
+    display:flex;
 }
 
-.list > p{
-    margin:20px 0 10px 10px;
-    letter-spacing:5px;
-    border:1px solid black;
-    padding:2px;
-    width:300px;
-    text-align:center;
-    color:white;
-    background:black;
-}
-
-.loginarea_list{
+.toplist-loginarea{
     width:300px;
     border:1px solid black;
     text-align:center;
     background:#EEEEEE;
-    margin:10px 0 10px 10px;
+    margin:10px 30px 10px 30px;
 }
 
-.loginarea_list p{
+.toplist-loginarea p{
     font-size:13px;
     font-weit:bold;
     letter-spacing:2px;
     margin:0;
 }
 
+.toplistmenu{
+    letter-spacing:2px;
+    border:1px solid black;
+    padding:1px;
+    width:300px;
+    text-align:center;
+    margin:20px 30px 50px 30px;
+    color:white;
+    background:black;
+}
+
+.selectmenu{
+    font-size:15px;
+    letter-spacing:1px;
+    width:300px;
+    margin:0 auto;
+    list-style:none;
+    padding:0;
+}
+
+.selectmenu a{
+    text-decoration:none;
+    color:black;
+}
+
+.selectmenu a:hover{
+    opacity:0.7;
+}
+
+.list{
+    width:100%;
+}
+
+.list > p{
+    letter-spacing:5px;
+    margin:25px 0 0 10px;
+    color:black;
+}
+
+.list form{
+    margin-left:10px;
+}
+
 .kinginfo{
     width:100%;
     margin:25px 10px 25px 10px;
 }
+
 
 .topmenu{
     width:200px;
@@ -141,3 +176,8 @@
     letter-spacing:2px;
     margin:0;
 }
+
+.listmonth{
+    margin:10px 20px;
+}
+

@@ -103,7 +103,7 @@ try
                     <a href="order_download.php">日付選択へ</a>
                 </li>
                 <li>
-                    <a href="../staff_login/staff_top.php">トップメニューへ</a>
+                    <a href="../info/king_info_list.php">トップメニューへ</a>
                 </li>
             </ul>
         </section>

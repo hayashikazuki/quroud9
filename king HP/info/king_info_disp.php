@@ -85,9 +85,10 @@ else
             
             <form method="post" action="king_info_delete.php">
                 <input type="hidden" name="kingcode" value="<?php print $king_code; ?>">
-                <input type="button" onclick="history.back()" value="戻る" class="btn">
                 <input type="submit" name="delete" value="削除" class="btn">
             </form>
+            <br />
+            <a href="king_info_list.php">トップメニューへ</a>
         </section>
     
     </body>
