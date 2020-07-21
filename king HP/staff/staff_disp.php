@@ -52,9 +52,23 @@ try
     </head>
     <body>
         
-        <div class="loginarea">
-            <p><?php print $login; ?>さん、ログイン中</p>
-        </div>
+        <section class="dispmenu">
+        
+        <section class="menu">
+            <div class="toplist-loginarea">
+                <p><?php print $login; ?>さん、ログイン中</p>
+            </div>
+            <p class="toplistmenu">トップメニュー</p>
+            <ul class="selectmenu">
+                <li><a href="../staff/staff_list.php">スタッフ管理</a></li>
+                <br />
+                <li><a href="../info/king_info_list.php">ご依頼者管理</a></li>
+                <br />
+                <li><a href="../order/order_download.php">ご依頼者情報ダウンロード</a></li>
+                <br />
+                <li><a href="../staff_login/staff_logout.php">ログアウト</a></li>
+            </ul>
+        </section>
 
         <section class="disp">
         <p>スタッフ情報参照</p>
@@ -64,10 +78,12 @@ try
         </ul>
         <form action=staff_branch.php method="post">
             <input type="hidden" name="staffcode" value="<?php print $staff_code; ?>">
-            <input type="submit" name="edit" value="修正" class="listbtn">
-            <input type="submit" name="delete" value="削除" class="listbtn">
-            <input type="button" onclick="history.back()" value="戻る" class="listbtn">
+            <input type="submit" name="edit" value="修正" class="btn">
+            <input type="submit" name="delete" value="削除" class="btn">
+            <input type="button" onclick="history.back()" value="戻る" class="btn">
         </form>
+     </section>
+     
      </section>
     </body>
 </html>

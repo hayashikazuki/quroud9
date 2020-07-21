@@ -33,47 +33,64 @@ require_once('../common/common.php');
     
     <body>
         
-        <div class="loginarea">
-            <p><?php print $login; ?>さん、ログイン中</p>
-        </div>
+        <section class="editmenu">
         
-    <section class="editcheck">
-    <?php if($staff_name == '') { ?>
-    
-        <p>スタッフ名が入力されていません。</p>
+        <section class="menu">
+            <div class="toplist-loginarea">
+                <p><?php print $login; ?>さん、ログイン中</p>
+            </div>
+            <p class="toplistmenu">トップメニュー</p>
+            <ul class="selectmenu">
+                <li><a href="../staff/staff_list.php">スタッフ管理</a></li>
+                <br />
+                <li><a href="../info/king_info_list.php">ご依頼者管理</a></li>
+                <br />
+                <li><a href="../order/order_download.php">ご依頼者情報ダウンロード</a></li>
+                <br />
+                <li><a href="../staff_login/staff_logout.php">ログアウト</a></li>
+            </ul>
+        </section>
         
-    <?php } else { ?>
-    
-        <p>スタッフ名: <?php print $staff_name; ?></p>
+        <section class="editcheck">
+            <p class="edittitle">スタッフ修正</p>
+        <?php if($staff_name == '') { ?>
         
-    <?php } ?>
-    
-    <?php if($staff_pass == '') { ?>
-    
-        <p>パスワードが入力されてません。</p>
+            <p>スタッフ名が入力されていません。</p>
+            
+        <?php } else { ?>
         
-    <?php } if($staff_pass != $staff_pass2) { ?>
-        <p>パスワードが一致しません。</p>
-    <?php } ?>
+            <p>スタッフ名: <?php print $staff_name; ?></p>
+            
+        <?php } ?>
+        
+        <?php if($staff_pass == '') { ?>
+        
+            <p>パスワードが入力されてません。</p>
+            
+        <?php } if($staff_pass != $staff_pass2) { ?>
+            <p>パスワードが一致しません。</p>
+        <?php } ?>
+        
+        <?php if($staff_name == '' || $staff_pass == '' || $staff_pass != $staff_pass2) { ?>
     
-    <?php if($staff_name == '' || $staff_pass == '' || $staff_pass != $staff_pass2) { ?>
-
-        <form>
-            <input type="button" onclick="history.back()" value="戻る" class="btn">
-        </form>
-    <?php } else { ?>
-        <?php $staff_pass = md5($staff_pass); ?>
-        <form method="post" action="staff_edit_done.php">
-            <input type="hidden" name="code" value="<?php print $staff_code; ?>">
-            <input type="hidden" name="name" value="<?php print $staff_name; ?>">
-            <input type="hidden" name="pass" value="<?php print $staff_pass; ?>">
-            <input type="button" onclick="history.back()" value="戻る" class="btn">
-            <input type="submit" value="OK" class="btn">
-        </form>
-    <?php } ?>
-    
-    </section>
-    
+            <form>
+                <input type="button" onclick="history.back()" value="戻る" class="btn">
+            </form>
+        <?php } else { ?>
+            <?php $staff_pass = md5($staff_pass); ?>
+            <form method="post" action="staff_edit_done.php">
+                <input type="hidden" name="code" value="<?php print $staff_code; ?>">
+                <input type="hidden" name="name" value="<?php print $staff_name; ?>">
+                <input type="hidden" name="pass" value="<?php print $staff_pass; ?>">
+                <input type="button" onclick="history.back()" value="戻る" class="btn">
+                <input type="submit" value="OK" class="btn">
+            </form>
+        <?php } ?>
+        
+        </section>
+        
+        </section>
+        
     
     </body>
 </html>

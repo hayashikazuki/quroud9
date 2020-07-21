@@ -88,24 +88,38 @@ try
     </head>
     <body>
     
-        <div class="loginarea">
-            <p><?php print $login; ?>さん、ログイン中</p>
-        </div>
+        <section class="dawnloadmenu">
+    
         <section class="menu">
-            <p>ダウンロード</p>
+            <div class="toplist-loginarea">
+                <p><?php print $login; ?>さん、ログイン中</p>
+            </div>
+            <p class="toplistmenu">トップメニュー</p>
             <ul class="selectmenu">
-                <li>
-                    <a href="uketuke.csv">"注文データのダウンロード"</a>
-                    <br />
-                    <br />
-                </li>
-                <li>
-                    <a href="order_download.php">日付選択へ</a>
-                </li>
-                <li>
-                    <a href="../info/king_info_list.php">トップメニューへ</a>
-                </li>
+                <li><a href="../staff/staff_list.php">スタッフ管理</a></li>
+                <br />
+                <li><a href="../info/king_info_list.php">ご依頼者管理</a></li>
+                <br />
+                <li><a href="../order/order_download.php">ご依頼者情報ダウンロード</a></li>
+                <br />
+                <li><a href="../staff_login/staff_logout.php">ログアウト</a></li>
             </ul>
+        </section>
+        
+        
+        <section class="dawnload">
+            <p>ダウンロード</p>
+            　　<br />
+                <a href="uketuke.csv">
+                    <?php print $year; ?>年<?php print $month; ?>月注文データのダウンロード
+                </a>
+                <br />
+                <br />
+                <br />
+                <a href="order_download.php">日付選択へ戻る</a>
+               
+        </section>
+        
         </section>
         
     </body>

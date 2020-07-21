@@ -52,36 +52,52 @@ try
     </head>
     <body>
         
-        <div class="loginarea">
-            <p><?php print $login; ?>さん、ログイン中</p>
-        </div>
-    
-    <section class="edit">
-        <p>スタッフ修正</p>
+        <section class="editmenu">
         
-    <form method="post" action="staff_edit_check.php">
-        <ul class="editstaff">
-            <li>
-                <p>スタッフコード: <?php print $staff_code; ?></p>
-            </li>
-            <li>
-                <input type="hidden" name="code" value="<?php print $staff_code; ?>">
-                <p>スタッフ名</p>
-                <input type="text" name="name" value="<?php print $staff_name; ?>">
-            </li>
-            <li>
-                <p>パスワードを入力してください。</p>
-                <input type="password" name="pass" >
-            </li>
-            <li>
-                <p>パスワードをもう1度入力して下さい。</p>
-                <input type="password" name="pass2">
-            </li>
-        </ul>
-        <input type="button" onclick="history.back()" value="戻る" class="btn">
-        <input type="submit" value="OK" class="btn">
-    </form>
-    </section>
+        <section class="menu">
+            <div class="toplist-loginarea">
+                <p><?php print $login; ?>さん、ログイン中</p>
+            </div>
+            <p class="toplistmenu">トップメニュー</p>
+            <ul class="selectmenu">
+                <li><a href="../staff/staff_list.php">スタッフ管理</a></li>
+                <br />
+                <li><a href="../info/king_info_list.php">ご依頼者管理</a></li>
+                <br />
+                <li><a href="../order/order_download.php">ご依頼者情報ダウンロード</a></li>
+                <br />
+                <li><a href="../staff_login/staff_logout.php">ログアウト</a></li>
+            </ul>
+        </section>
+    
+        <section class="edit">
+            <p>スタッフ修正</p>
+            
+        <form method="post" action="staff_edit_check.php">
+            <ul class="editstaff">
+                <li>
+                    <p>スタッフコード: <?php print $staff_code; ?></p>
+                </li>
+                <li>
+                    <input type="hidden" name="code" value="<?php print $staff_code; ?>">
+                    <p>スタッフ名</p>
+                    <input type="text" name="name" value="<?php print $staff_name; ?>">
+                </li>
+                <li>
+                    <p>パスワードを入力してください。</p>
+                    <input type="password" name="pass" >
+                </li>
+                <li>
+                    <p>パスワードをもう1度入力して下さい。</p>
+                    <input type="password" name="pass2">
+                </li>
+            </ul>
+            <input type="button" onclick="history.back()" value="戻る" class="btn">
+            <input type="submit" value="OK" class="btn">
+        </form>
+        </section>
+        
+        </section>
     
     </body>
 </html>

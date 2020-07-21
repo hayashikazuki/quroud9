@@ -1,0 +1,258 @@
+.menu{
+    position:fixed;
+    top:0;
+    left:10px;
+}
+
+.toplist-loginarea{
+    width:200px;
+    border:1px solid black;
+    text-align:center;
+    background:#EEEEEE;
+    margin:4px 20px 5px 20px;
+}
+
+.toplist-loginarea p{
+    font-size:10px;
+    font-weit:bold;
+    letter-spacing:2px;
+    margin:0;
+}
+
+.toplistmenu{
+    letter-spacing:1px;
+    border:1px solid black;
+    padding:1px;
+    width:200px;
+    text-align:center;
+    margin:4px 20px 15px 20px;
+    color:white;
+    background:black;
+}
+
+.selectmenu{
+    font-size:13px;
+    letter-spacing:1px;
+    width:200px;
+    /*margin:0 auto;*/
+    margin-left:30px;
+    list-style:none;
+    padding:0;
+}
+
+.selectmenu a{
+    text-decoration:none;
+    color:black;
+}
+
+.selectmenu a:hover{
+    opacity:0.7;
+}
+
+.addmenu{
+    display:flex;
+}
+
+.add{
+    width:100%;
+    margin-left:240px;
+}
+
+.add > p{
+    letter-spacing:3px;
+    font-size:25px;
+    border-bottom:1px solid black;
+    text-align:left;
+    width:600px;
+    color:black;
+}
+
+.addstaff{
+    font-size:15px;
+    width:300px;
+    list-style:none;
+    margin-bottom:30px;
+    
+}
+
+
+.addcheck{
+    width:100%;
+    letter-spacing:2px;
+    font-size:15px;
+    text-align:left;
+    width:600px;
+    color:black;
+    margin-left:240px;
+    
+}
+
+.addtitle{
+    letter-spacing:3px;
+    font-size:25px;
+    border-bottom:1px solid black;
+    text-align:left;
+    width:600px;
+    color:black;
+}
+
+.done{
+    width:100%;
+    text-align:left;
+    margin-left:240px;
+}
+
+.editmenu{
+    display:flex;
+}
+
+
+.edit{
+    width:100%;
+    margin-left:240px;
+}
+
+.edit > p{
+    letter-spacing:3px;
+    font-size:25px;
+    border-bottom:1px solid black;
+    text-align:left;
+    width:600px;
+    color:black;
+}
+
+.editstaff{
+    font-size:15px;
+    width:600px;
+    list-style:none;
+    margin-bottom:30px;
+}
+
+.editcheck{
+    width:100%;
+    letter-spacing:2px;
+    font-size:15px;
+    text-align:left;
+    width:600px;
+    color:black;
+}
+
+.edittitle{
+    letter-spacing:3px;
+    font-size:25px;
+    border-bottom:1px solid black;
+    text-align:left;
+    width:600px;
+    color:black;
+}
+
+.deletemenu{
+    display:flex;
+}
+
+.delete{
+    width:100%;
+    margin-left:240px;
+}
+
+.delete > p{
+    letter-spacing:3px;
+    font-size:25px;
+    border-bottom:1px solid black;
+    text-align:left;
+    width:600px;
+    color:black;
+}
+
+.deletestaff{
+    font-size:15px;
+    width:600px;
+    list-style:none;
+}
+
+.deletetitle{
+    letter-spacing:3px;
+    font-size:25px;
+    border-bottom:1px solid black;
+    text-align:left;
+    width:600px;
+    color:black;
+}
+
+.dispmenu{
+    display:flex;
+}
+
+.disp{
+    width:100%;
+    margin-left:240px;
+}
+
+
+.disp > p{
+    letter-spacing:3px;
+    font-size:25px;
+    border-bottom:1px solid black;
+    text-align:left;
+    width:600px;
+    color:black;
+}
+
+.dispstaff{
+    font-size:15px;
+    width:300px;
+    list-style:none;
+    margin:30px 0 30px 0;
+}
+
+.dispstaff li{
+    margin-bottom:20px;
+}
+
+.listmenu{
+    display:flex;
+}
+
+.list{
+    width:100%;
+    margin-left:240px;
+}
+
+.list > p{
+    letter-spacing:3px;
+    font-size:25px;
+    border-bottom:1px solid black;
+    text-align:left;
+    width:600px;
+    color:black;
+    margin-top:30px;
+}
+
+.listbtn{
+    display:block;
+    width:80px;
+    margin:10px;
+}
+
+
+.staff-list{
+    width:500px;
+    margin-left:10px;
+}
+
+.btn{
+    width:100px;
+    display:block;
+    margin-top:20px;
+    margin-left:30px;
+}
+
+
+
+@media screen and (max-width:559px) {
+    /*.add,.addstaff,.addcheck,.editcheck,.done,.done a,.list,.list a,.listbtn,.loginarea_list,*/
+    /*.edit,.delete,.disp,.dispstaff,.btn,.loginarea*/
+    /*{*/
+    /*    margin:0 auto;*/
+    /*}*/
+}

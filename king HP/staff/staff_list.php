@@ -47,12 +47,26 @@ try
     </head>
     <body>
         
-        <div class="loginarea_list">
-            <p><?php print $login; ?>さん、ログイン中</p>
-        </div>
+        <section class="listmenu">
+        
+        <section class="menu">
+            <div class="toplist-loginarea">
+                <p><?php print $login; ?>さん、ログイン中</p>
+            </div>
+            <p class="toplistmenu">トップメニュー</p>
+            <ul class="selectmenu">
+                <li><a href="../staff/staff_list.php">スタッフ管理</a></li>
+                <br />
+                <li><a href="../info/king_info_list.php">ご依頼者管理</a></li>
+                <br />
+                <li><a href="../order/order_download.php">ご依頼者情報ダウンロード</a></li>
+                <br />
+                <li><a href="../staff_login/staff_logout.php">ログアウト</a></li>
+            </ul>
+        </section>
+        
         <section class="list"> 
             <p>スタッフ一覧</p>
-            <a href="../info/king_info_list.php">トップメニューへ</a>
             <form method="post" action="staff_branch.php">
                 <input type="submit" name="add" value="追加" class="listbtn">
             </form>    
@@ -84,6 +98,8 @@ try
                 <?php } ?>
                 </table>
             </div>
+        </section>
+        
         </section>
    
     

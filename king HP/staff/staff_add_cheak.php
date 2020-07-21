@@ -32,11 +32,26 @@ require_once('../common/common.php');
     
     <body>
         
-        <div class="loginarea">
-            <p><?php print $login; ?>さん、ログイン中</p>
-        </div>
+        <section class="addmenu">
+        
+        <section class="menu">
+            <div class="toplist-loginarea">
+                <p><?php print $login; ?>さん、ログイン中</p>
+            </div>
+            <p class="toplistmenu">トップメニュー</p>
+            <ul class="selectmenu">
+                <li><a href="../staff/staff_list.php">スタッフ管理</a></li>
+                <br />
+                <li><a href="../info/king_info_list.php">ご依頼者管理</a></li>
+                <br />
+                <li><a href="../order/order_download.php">ご依頼者情報ダウンロード</a></li>
+                <br />
+                <li><a href="../staff_login/staff_logout.php">ログアウト</a></li>
+            </ul>
+        </section>
     
     <section class="addcheck">
+        <p class="addtitle">スタッフ追加</p>
     <?php if($staff_name == '') { ?>
     
         <p>スタッフ名が入力されていません。</p>
@@ -69,6 +84,8 @@ require_once('../common/common.php');
             <input type="submit" value="OK" class="btn">
         </form>
     <?php } ?>
+    
+    </section>
     
     </section>
     </body>

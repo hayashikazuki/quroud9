@@ -1,79 +1,140 @@
-.add{
-    width:100%;
+.toplist-loginarea{
+    width:300px;
+    border:1px solid black;
+    text-align:center;
+    background:#EEEEEE;
+    margin:10px 30px 10px 30px;
 }
 
-.add > p{
+.toplist-loginarea p{
+    font-size:13px;
+    font-weit:bold;
+    letter-spacing:2px;
+    margin:0;
+}
+
+.toplistmenu{
     letter-spacing:2px;
     border:1px solid black;
     padding:1px;
     width:300px;
     text-align:center;
+    margin:20px 30px 50px 30px;
     color:white;
     background:black;
+}
+
+.selectmenu{
+    font-size:15px;
+    letter-spacing:1px;
+    width:300px;
+    margin:0 auto;
+    list-style:none;
+    padding:0;
+}
+
+.selectmenu a{
+    text-decoration:none;
+    color:black;
+}
+
+.selectmenu a:hover{
+    opacity:0.7;
+}
+
+.addmenu{
+    display:flex;
+}
+
+.add{
+    width:100%;
+}
+
+.add > p{
+    letter-spacing:3px;
+    font-size:25px;
+    border-bottom:1px solid black;
+    text-align:left;
+    width:600px;
+    color:black;
 }
 
 .addstaff{
     font-size:15px;
     width:300px;
     list-style:none;
-    padding:0;
+    margin-bottom:30px;
 }
 
-.addcheck,.editcheck{
+
+.addcheck{
     width:100%;
+    letter-spacing:2px;
+    font-size:15px;
+    text-align:left;
+    width:600px;
+    color:black;
 }
 
-.addcheck p,.editcheck p{
-    line-height:30px;
-    font-size:15px;
-    letter-spacing:1px;
-    margin-bottom:20px;
+.addtitle{
+    letter-spacing:3px;
+    font-size:25px;
+    border-bottom:1px solid black;
+    text-align:left;
+    width:600px;
+    color:black;
 }
 
 .done{
-    margin-top:50px;
     width:100%;
     text-align:left;
 }
 
-.done p{
-    letter-spacing:2px;
+.editmenu{
+    display:flex;
 }
 
-.done a{
-    width:100px;
-    background:black;
-    letter-spacing:1px;
-    text-decoration:none;
-    color:white;
-    display:block;
-    padding:3px;
-    text-align:center;
-}
-
-.done a:hover{
-    opacity:0.7;
-}
 
 .edit{
     width:100%;
 }
 
 .edit > p{
-    letter-spacing:2px;
-    border:1px solid black;
-    padding:1px;
-    width:300px;
-    text-align:center;
-    color:white;
-    background:black;
+    letter-spacing:3px;
+    font-size:25px;
+    border-bottom:1px solid black;
+    text-align:left;
+    width:600px;
+    color:black;
 }
 
 .editstaff{
     font-size:15px;
-    width:300px;
+    width:600px;
     list-style:none;
-    padding:0;
+    margin-bottom:30px;
+}
+
+.editcheck{
+    width:100%;
+    letter-spacing:2px;
+    font-size:15px;
+    text-align:left;
+    width:600px;
+    color:black;
+}
+
+.edittitle{
+    letter-spacing:3px;
+    font-size:25px;
+    border-bottom:1px solid black;
+    text-align:left;
+    width:600px;
+    color:black;
+}
+
+.deletemenu{
+    display:flex;
 }
 
 .delete{
@@ -81,119 +142,96 @@
 }
 
 .delete > p{
-    letter-spacing:2px;
-    border:1px solid black;
-    padding:1px;
-    width:300px;
-    text-align:center;
-    color:white;
-    background:black;
+    letter-spacing:3px;
+    font-size:25px;
+    border-bottom:1px solid black;
+    text-align:left;
+    width:600px;
+    color:black;
 }
 
 .deletestaff{
     font-size:15px;
-    width:300px;
+    width:600px;
     list-style:none;
-    padding:0;
+}
+
+.deletetitle{
+    letter-spacing:3px;
+    font-size:25px;
+    border-bottom:1px solid black;
+    text-align:left;
+    width:600px;
+    color:black;
+}
+
+.dispmenu{
+    display:flex;
 }
 
 .disp{
     width:100%;
 }
 
+
 .disp > p{
-    letter-spacing:2px;
-    border:1px solid black;
-    padding:1px;
-    width:300px;
-    text-align:center;
-    color:white;
-    background:black;
+    letter-spacing:3px;
+    font-size:25px;
+    border-bottom:1px solid black;
+    text-align:left;
+    width:600px;
+    color:black;
 }
 
 .dispstaff{
     font-size:15px;
     width:300px;
     list-style:none;
-    padding:0;
     margin:30px 0 30px 0;
 }
 
 .dispstaff li{
     margin-bottom:20px;
 }
+
+.listmenu{
+    display:flex;
+}
+
 .list{
     width:100%;
 }
 
 .list > p{
-    letter-spacing:2px;
-    border:1px solid black;
-    padding:1px;
-    width:300px;
-    text-align:center;
-    color:white;
-    background:black;
-    margin-left:10px;
-}
-
-.list a{
-    width:200px;
     letter-spacing:3px;
-    text-decoration:none;
+    font-size:25px;
+    border-bottom:1px solid black;
+    text-align:left;
+    width:600px;
     color:black;
-    display:block;
-    margin-left:10px;
-}
-
-.list a:hover{
-    opacity:0.7;
+    margin-top:30px;
 }
 
 .listbtn{
-    width:80px;
     display:block;
-    margin:10px 0 10px 10px;
+    width:80px;
+    margin:10px;
 }
 
-.loginarea_list{
-    width:300px;
-    border:1px solid black;
-    text-align:center;
-    background:#EEEEEE;
-    margin:10px 0 10px 10px;
-}
-
-.loginarea_list p{
-    font-size:13px;
-    font-weit:bold;
-    letter-spacing:2px;
-    margin:0;
-}
 
 .staff-list{
-    width:400px;
+    width:500px;
+    margin-left:10px;
 }
 
 .btn{
     width:100px;
     display:block;
-    margin-top:10px;
+    margin-top:20px;
+    margin-left:30px;
 }
 
-.loginarea{
-    width:300px;
-    border:1px solid black;
-    text-align:center;
-    background:#EEEEEE;
-}
 
-.loginarea p{
-    font-size:13px;
-    font-weit:bold;
-    letter-spacing:2px;
-    margin:0;
-}
 
 @media screen and (max-width:559px) {
     /*.add,.addstaff,.addcheck,.editcheck,.done,.done a,.list,.list a,.listbtn,.loginarea_list,*/

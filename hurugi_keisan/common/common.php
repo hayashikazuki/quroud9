@@ -1,33 +1,5 @@
 <?php
-function gengo($seireki)
-    {
-        if(1868 <= $seireki && $seireki <= 1911)
-        {
-            $gengo='明治';
-        }
-        
-        if(1912 <= $seireki && $seireki <= 1925)
-        {
-            $gengo='大正';
-        }
-        
-        if(1926 <= $seireki && $seireki <= 1988)
-        {
-            $gengo='昭和';
-        }
-        
-        if(1989 <= $seireki && $seireki <= 2019)
-        {
-            $gengo='平成';
-        }
-        
-        if($seireki == 2020)
-        {
-            $gengo='令和';
-        }
-        
-        return($gengo);
-    }
+
     
     function sanitize($before)
     {
@@ -39,11 +11,70 @@ function gengo($seireki)
         return $after;
     }
     
-    function pulldown_year()
+    function pulldown_year($year = null)
     {
         print'<select name="year">';
-        print'<option value="2015">2015</option>';
-        print'<option value="2016">2016</option>';
+        print'<option value="">----<option>';
+        for($i = 2015; $i <= 2025; $i++){
+            if($i == $year){
+                print'<option value="' . $i . '" selected>' . sprintf('%02d', $i) . '</option>';
+            }else{
+                print'<option value="' . $i . '">' . sprintf('%02d', $i) . '</option>';
+            }
+        }
+        
+        print'</select>';
+    }
+    
+    function pulldown_month($month = null)
+    {
+        print'<select name="month">';
+        print'<option value="">----<option>';
+        for($i = 1; $i <= 12; $i++){
+            if($i == $month){
+                print'<option value="' . $i . '" selected>' . sprintf('%02d', $i) . '</option>';
+            }else{
+                print'<option value="' . $i . '">' . sprintf('%02d', $i) . '</option>';
+            }
+        }
+        
+        print'</select>';
+    }
+    
+    function pulldown_saleyear($saleyear = null)
+    {
+        print'<select name="saleyear">';
+        print'<option value="">----<option>';
+        for($i = 2015; $i <= 2025; $i++){
+            if($i == $saleyear){
+                print'<option value="' . $i . '" selected>' . sprintf('%02d', $i) . '</option>';
+            }else{
+                print'<option value="' . $i . '">' . sprintf('%02d', $i) . '</option>';
+            }
+        }
+        
+        print'</select>';
+    }
+    
+    function pulldown_salemonth($salemonth = null)
+    {
+        print'<select name="salemonth">';
+        print'<option value="">----<option>';
+        for($i = 1; $i <= 12; $i++){
+            if($i == $salemonth){
+                print'<option value="' . $i . '" selected>' . sprintf('%02d', $i) . '</option>';
+            }else{
+                print'<option value="' . $i . '">' . sprintf('%02d', $i) . '</option>';
+            }
+        }
+        
+        print'</select>';
+    }
+    
+    
+    function dawnload_pulldown_year()
+    {
+        print'<select name="year">';
         print'<option value="2017">2017</option>';
         print'<option value="2018">2018</option>';
         print'<option value="2019">2019</option>';
@@ -53,11 +84,10 @@ function gengo($seireki)
         print'<option value="2023">2023</option>';
         print'<option value="2024">2024</option>';
         print'<option value="2025">2025</option>';
-        print'<option value="2026">2026</option>';
         print'</select>';
     }
     
-    function pulldown_month()
+    function dawnload_pulldown_month()
     {
         print'<select name="month">';
         print'<option value="01">01</option>';
@@ -75,7 +105,7 @@ function gengo($seireki)
         print'</select>';
     }
     
-    function pulldown_day()
+    function dawnload_pulldown_day()
     {
         print'<select name="day">';
         print'<option value="01">01</option>';

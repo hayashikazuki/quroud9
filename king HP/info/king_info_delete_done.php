@@ -51,13 +51,30 @@ else
     </head>
     <body>
         
-        <div class="loginarea">
-            <p><?php print $login; ?>さん、ログイン中</p>
-        </div>
+        <section class="deletedone-menu">
+        
+        <section class="menu">
+            <div class="toplist-loginarea">
+                <p><?php print $login; ?>さん、ログイン中</p>
+            </div>
+            <p class="toplistmenu">トップメニュー</p>
+            <ul class="selectmenu">
+                <li><a href="../staff/staff_list.php">スタッフ管理</a></li>
+                <br />
+                <li><a href="../info/king_info_list.php">ご依頼者管理</a></li>
+                <br />
+                <li><a href="../order/order_download.php">ご依頼者情報ダウンロード</a></li>
+                <br />
+                <li><a href="../staff_login/staff_logout.php">ログアウト</a></li>
+            </ul>
+        </section>
     
         <section class="done">
+            <p class="donetitle">ご依頼者削除</p>
             <p><?php print $king_name; ?>さんを削除しました。</p>
-            <a href ="king_info_list.php">戻る</a>
+            <!--<a href ="king_info_list.php">トップメニューへ戻る</a>-->
+        </section>
+        
         </section>
 
         

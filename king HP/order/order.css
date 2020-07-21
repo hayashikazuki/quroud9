@@ -1,20 +1,67 @@
-.dawnload{
-    width:100%;
+.toplist-loginarea{
+    width:300px;
+    border:1px solid black;
+    text-align:center;
+    background:#EEEEEE;
+    margin:10px 30px 10px 30px;
 }
 
-.dawnload > p{
+.toplist-loginarea p{
+    font-size:13px;
+    font-weit:bold;
+    letter-spacing:2px;
+    margin:0;
+}
+
+.toplistmenu{
     letter-spacing:2px;
     border:1px solid black;
     padding:1px;
     width:300px;
     text-align:center;
+    margin:20px 30px 50px 30px;
     color:white;
     background:black;
 }
 
-form{
+.selectmenu{
+    font-size:15px;
+    letter-spacing:1px;
     width:300px;
-    text-align:center;
+    margin:0 auto;
+    list-style:none;
+    padding:0;
+}
+
+.selectmenu a{
+    text-decoration:none;
+    color:black;
+}
+
+.selectmenu a:hover{
+    opacity:0.7;
+}
+
+
+.dawnloadmenu{
+    display:flex;
+}
+
+.dawnload{
+    width:100%;
+}
+
+.dawnload > p{
+    letter-spacing:3px;
+    font-size:25px;
+    border-bottom:1px solid black;
+    text-align:left;
+    width:600px;
+    color:black;
+}
+
+form{
+    width:600px;
 }
 
 form > p{
@@ -28,54 +75,39 @@ form > p{
     margin-top:10px;
 }
 
-.menu{
-    width:100%;
-}
+/*.menu{*/
+/*    width:100%;*/
+/*}*/
 
-.menu > p{
-    letter-spacing:2px;
-    border:1px solid black;
-    padding:1px;
-    width:300px;
-    text-align:center;
-    color:white;
-    background:black;
-}
+/*.menu > p{*/
+/*    letter-spacing:2px;*/
+/*    border:1px solid black;*/
+/*    padding:1px;*/
+/*    width:300px;*/
+/*    color:white;*/
+/*    background:black;*/
+/*}*/
 
-.selectmenu{
-    font-size:15px;
-    letter-spacing:1px;
-    width:300px;
-    margin-left:20px;
-    list-style:none;
-    padding:0;
-}
+/*.selectmenu{*/
+/*    font-size:15px;*/
+/*    letter-spacing:1px;*/
+/*    width:300px;*/
+/*    margin-left:20px;*/
+/*    list-style:none;*/
+/*    padding:0;*/
+/*}*/
 
-.selectmenu li{
-    margin-bottom:25px;
-    text-align:left;
-}
+/*.selectmenu li{*/
+/*    margin-bottom:25px;*/
+/*    text-align:left;*/
+/*}*/
 
-.selectmenu a{
-    text-decoration:none;
-    color:black;
-}
+/*.selectmenu a{*/
+/*    text-decoration:none;*/
+/*    color:black;*/
+/*}*/
 
-.selectmenu a:hover{
-    opacity:0.7;
-}
-
-.loginarea{
-    width:300px;
-    border:1px solid black;
-    text-align:center;
-    background:#EEEEEE;
-}
-
-.loginarea p{
-    font-size:13px;
-    font-weit:bold;
-    letter-spacing:2px;
-    margin:0;
-}
+/*.selectmenu a:hover{*/
+/*    opacity:0.7;*/
+/*}*/
 

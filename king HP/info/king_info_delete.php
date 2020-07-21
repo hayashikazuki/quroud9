@@ -57,32 +57,49 @@ try
     </head>
     <body>
         
-    <div class="loginarea">
-        <p><?php print $login; ?>さん、ログイン中</p>
-    </div>
-    <section class="delete">
-    <p>ご依頼者削除</p>
-        <ul class="deleteinfo">
-            <li>
-                <p>ご依頼者コード：<?php print $king_code;; ?></p>
-            </li>
-            <li>
-                <p>ご依頼者名：<?php print $king_name; ?></p>
-            </li>
-            <li>
-                <p>メールアドレス：<?php print $king_email; ?></p>
-            </li>
-            <li>
-                <p>このご依頼者を削除してよろしいですか？</p>
-            </li>
-        </ul>
-    <form method="post" action="king_info_delete_done.php">
-    <input type="hidden" name="code" value="<?php print $king_code; ?>">
-    <input type="hidden" name="name" value="<?php print $king_name; ?>">
-    <input type="button" onclick="history.back()" value="戻る" class="btn">
-    <input type="submit" value="OK" class="btn">
-    </form>
-    </section>
+        <section class="deletemenu">
+        
+        <section class="menu">
+            <div class="toplist-loginarea">
+                <p><?php print $login; ?>さん、ログイン中</p>
+            </div>
+            <p class="toplistmenu">トップメニュー</p>
+            <ul class="selectmenu">
+                <li><a href="../staff/staff_list.php">スタッフ管理</a></li>
+                <br />
+                <li><a href="../info/king_info_list.php">ご依頼者管理</a></li>
+                <br />
+                <li><a href="../order/order_download.php">ご依頼者情報ダウンロード</a></li>
+                <br />
+                <li><a href="../staff_login/staff_logout.php">ログアウト</a></li>
+            </ul>
+        </section>
+        
+        <section class="delete">
+            <p>ご依頼者削除</p>
+                <ul class="deleteinfo">
+                    <li>
+                        <p>ご依頼者コード：<?php print $king_code;; ?></p>
+                    </li>
+                    <li>
+                        <p>ご依頼者名：<?php print $king_name; ?></p>
+                    </li>
+                    <li>
+                        <p>メールアドレス：<?php print $king_email; ?></p>
+                    </li>
+                    <li>
+                        <p>このご依頼者を削除してよろしいですか？</p>
+                    </li>
+                </ul>
+            <form method="post" action="king_info_delete_done.php">
+            <input type="hidden" name="code" value="<?php print $king_code; ?>">
+            <input type="hidden" name="name" value="<?php print $king_name; ?>">
+            <input type="button" onclick="history.back()" value="戻る" class="btn">
+            <input type="submit" value="OK" class="btn">
+            </form>
+        </section>
+        
+        </section>
 
     </body>
 </html>

@@ -1,9 +1,4 @@
 
-.topmain{
-    width:100%;
-    display:flex;
-}
-
 .toplist-loginarea{
     width:300px;
     border:1px solid black;
@@ -48,14 +43,23 @@
     opacity:0.7;
 }
 
+.topmain{
+    width:100%;
+    display:flex;
+}
+
 .list{
     width:100%;
 }
 
 .list > p{
-    letter-spacing:5px;
-    margin:25px 0 0 10px;
+    letter-spacing:3px;
+    font-size:25px;
+    border-bottom:1px solid black;
+    text-align:left;
+    width:500px;
     color:black;
+    margin-top:30px;
 }
 
 .list form{
@@ -64,7 +68,7 @@
 
 .kinginfo{
     width:100%;
-    margin:25px 10px 25px 10px;
+    margin:10px 10px 20px 10px;
 }
 
 
@@ -83,73 +87,71 @@
 }
 
 
+.deletemenu{
+    display:flex;
+}
+
+
 .delete{
     width:100%;
 }
 
 .delete > p{
-    letter-spacing:2px;
-    border:1px solid black;
-    padding:1px;
-    width:300px;
-    text-align:center;
-    color:white;
-    background:black;
+    letter-spacing:3px;
+    font-size:25px;
+    border-bottom:1px solid black;
+    text-align:left;
+    width:600px;
+    color:black;
 }
 
 .deleteinfo{
     font-size:15px;
-    width:300px;
+    width:500px;
     list-style:none;
-    padding:0;
     margin-bottom:30px;
 }
 
+.deletedone-menu{
+    display:flex;
+}
+
 .done{
-    margin-top:100px;
-    margin-left:20px;
     width:100%;
 }
 
-.done p{
+.donetitle{
     letter-spacing:3px;
+    font-size:25px;
+    border-bottom:1px solid black;
+    text-align:left;
+    width:600px;
+    color:black;
 }
 
-.done a{
-    width:100px;
-    background:black;
-    letter-spacing:1px;
-    text-decoration:none;
-    color:white;
-    display:block;
-    padding:3px;
-    text-align:center;
-    margin-left:20px;
-}
 
-.done a:hover{
-    opacity:0.7;
+.dispmenu{
+    display:flex;
 }
 
 .disp{
     width:100%;
+    
 }
 
 .disp > p{
-    letter-spacing:2px;
-    border:1px solid black;
-    padding:1px;
-    width:300px;
-    text-align:center;
-    color:white;
-    background:black;
+    letter-spacing:3px;
+    font-size:25px;
+    border-bottom:1px solid black;
+    text-align:left;
+    width:600px;
+    color:black;
 }
 
 .dispinfo{
     font-size:15px;
-    width:500px;
+    width:600px;
     list-style:none;
-    padding:0;
     margin-bottom:30px;
 }
 
@@ -160,7 +162,8 @@
 .btn{
     width:100px;
     display:block;
-    margin-top:10px;
+    margin-left:50px;
+    margin-top:20px;
 }
 
 .loginarea{
@@ -177,7 +180,8 @@
     margin:0;
 }
 
-.listmonth{
-    margin:10px 20px;
-}
+
+
+
+
 

@@ -51,14 +51,30 @@ try
     </head>
     <body>
         
-        <div class="loginarea">
-            <p><?php print $login; ?>さん、ログイン中</p>
-        </div>
+        <section class="deletemenu">
+        
+        <section class="menu">
+            <div class="toplist-loginarea">
+                <p><?php print $login; ?>さん、ログイン中</p>
+            </div>
+            <p class="toplistmenu">トップメニュー</p>
+            <ul class="selectmenu">
+                <li><a href="../staff/staff_list.php">スタッフ管理</a></li>
+                <br />
+                <li><a href="../info/king_info_list.php">ご依頼者管理</a></li>
+                <br />
+                <li><a href="../order/order_download.php">ご依頼者情報ダウンロード</a></li>
+                <br />
+                <li><a href="../staff_login/staff_logout.php">ログアウト</a></li>
+            </ul>
+        </section>
     
-    <section class="done">
-        <p><?php print $staff_name; ?>さんを削除しました。</p>
-        <a href ="staff_list.php">戻る</a>
-    </section>
+        <section class="done">
+            <p class="deletetitle">スタッフ削除</p>
+            <p><?php print $staff_name; ?>さんを削除しました。</p>
+        </section>
+        
+        </section>
     
     
     

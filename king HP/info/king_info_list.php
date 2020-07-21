@@ -21,7 +21,27 @@ try
     $dbh = new PDO($dsn,$user,$password);
     $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
     
-    $sql = 'SELECT code,date,name,email,subject FROM king_info WHERE 1';
+    $sql = 'SELECT code,date,name,email,subject FROM king_info ';
+    
+    $year = $_POST['year'];
+    $month = $_POST['month'];
+    
+    
+    if(isset($year) && isset($month)){
+        
+        $sql .= ' WHERE substr(king_info.date,1,4) = ' . $year;
+        $sql .= ' AND substr(king_info.date,6,2) = ' . $month;
+        
+    }else{
+        
+        $sql .= ' WHERE 1';
+        
+    }
+    
+    
+    
+    
+    // $sql = 'SELECT code,date,name,email,subject FROM king_info WHERE 1';
     $stmt = $dbh->prepare($sql);
     $stmt->execute();
     
@@ -61,8 +81,8 @@ try
             <ul class="selectmenu">
                 <li><a href="../staff/staff_list.php">スタッフ管理</a></li>
                 <br />
-                <!--<li><a href="../info/king_info_list.php">ご依頼者管理</a></li>-->
-                <!--<br />-->
+                <li><a href="../info/king_info_list.php">ご依頼者管理</a></li>
+                <br />
                 <li><a href="../order/order_download.php">ご依頼者情報ダウンロード</a></li>
                 <br />
                 <li><a href="../staff_login/staff_logout.php">ログアウト</a></li>
@@ -71,10 +91,11 @@ try
     
         <section class="list"> 
     
-            <p>・ご依頼者一覧</p>
+            <p>ご依頼者一覧</p>
             <br />
-            <form method="post" action="king_info_dispmonth.php">
-                <p><?php pulldown_year(); ?>&nbsp;&nbsp;年&nbsp;&nbsp;<?php pulldown_month(); ?>&nbsp;&nbsp;月&nbsp;&nbsp;&nbsp;<input type="submit" value="表示"></p>
+            <!--<form method="post" action="king_info_dispmonth.php">-->
+            <form method="post" action="king_info_list.php">
+                <p><?php pulldown_year($year); ?>&nbsp;&nbsp;年&nbsp;&nbsp;<?php pulldown_month($month); ?>&nbsp;&nbsp;月&nbsp;&nbsp;&nbsp;<input type="submit" value="表示"></p>
             </form>
             <!--<a href="../staff_login/staff_top.php" class="topmenu">トップメニューへ</a>-->
             <div class="kinginfo">
