@@ -11,9 +11,24 @@
         return $after;
     }
     
+    function era_select($hurugi_era = null)
+    {
+        print'<select name="era">';
+        print'<option value="">----<option>';
+        for($i = 1950; $i <= 2020; $i=$i+10){
+            if($i == $hurugi_era){
+                print'<option value="' . $i . '" selected>' . sprintf('%02d', $i) . '</option>';
+            }else{
+                print'<option value="' . $i . '">' . sprintf('%02d', $i) . '</option>';
+            }
+        }
+        
+        print'</select>';
+    }
+    
     function pulldown_year($year = null)
     {
-        print'<select name="year">';
+        print'<select name="year" class="year-search">';
         print'<option value="">----<option>';
         for($i = 2015; $i <= 2025; $i++){
             if($i == $year){
@@ -28,7 +43,7 @@
     
     function pulldown_month($month = null)
     {
-        print'<select name="month">';
+        print'<select name="month" class="month-search">';
         print'<option value="">----<option>';
         for($i = 1; $i <= 12; $i++){
             if($i == $month){
@@ -139,6 +154,38 @@
         print'<option value="29">29</option>';
         print'<option value="30">30</option>';
         print'<option value="31">31</option>';
+        print'</select>';
+    }
+    
+    function salestatus($status){
+        print'<select name="status" class="status-search">';
+            print'<option value="">-----</option>';
+            if($status == notsale){
+                print'<option value="notsale" selected>'.未販売.'</option>';
+            }
+            else
+            {
+                print'<option value="notsale">'.未販売.'</option>';
+            }
+            
+            if($status == onsale){
+                print'<option value="onsale" selected>'.販売中.'</option>';
+            }
+            else
+            {
+                print'<option value="onsale">'.販売中.'</option>';
+            }
+            
+            if($status == sold){
+                print'<option value="sold" selected>'.販売済み.'</option>';
+            }
+            else
+            {
+                print'<option value="sold">'.販売済み.'</option>';
+            }
+            
+            
+            
         print'</select>';
     }
 

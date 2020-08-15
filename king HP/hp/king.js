@@ -50,6 +50,7 @@ $(document).ready(function() {
         return false;
     });
     
+    var window_width = $(window).width();
     
     $(window).scroll(function() {
         
@@ -73,10 +74,23 @@ $(document).ready(function() {
         $('.parallax-slider').attr('src', 'img/pawel-czerwinski-rCbJXrD1l0Y-unsplash.jpg');
     }
     
-    if(scroll > 3800)
+    if(window_width <= 559)
     {
-        $('.parallax-slider').attr('src', 'img/Blackout-hashtag-activism-e1591217908862.jpg');
+    
+        if(scroll > 5500)
+        {
+            $('.parallax-slider').attr('src', 'img/Blackout-hashtag-activism-e1591217908862.jpg');
+        }
+    
+    }else{
+        
+        if(scroll > 4000)
+        {
+            $('.parallax-slider').attr('src', 'img/Blackout-hashtag-activism-e1591217908862.jpg');
+        }
+        
     }
+    
     
     });
     

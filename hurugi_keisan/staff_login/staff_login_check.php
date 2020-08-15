@@ -17,7 +17,7 @@ $password = '';
 $dbh = new PDO($dsn,$user,$password);
 $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
-$sql = 'SELECT name FROM hurugi_staff WHERE code=? AND password=?';
+$sql = 'SELECT name,shopcode,employ FROM hurugi_staff WHERE code=? AND password=?';
 $stmt = $dbh->prepare($sql);
 $data[] = $staff_code;
 $data[] = $staff_pass;
@@ -41,6 +41,8 @@ else
     $_SESSION['login']=1;
     $_SESSION['staff_code']=$staff_code;
     $_SESSION['staff_name']=$rec['name'];
+    $_SESSION['shopcode']=$rec['shopcode'];
+    $_SESSION['employ']=$rec['employ'];
     header('Location:../product/hurugi_list.php');
     exit();
 }

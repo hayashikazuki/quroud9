@@ -11,6 +11,7 @@ if(isset($_SESSION['login'])==false)
 else
 {
     $login = $_SESSION['staff_name'];
+    $employ = $_SESSION['employ'];
 }
 ?>
 <?php
@@ -46,13 +47,21 @@ else
     $hurugi_material=$post['material'];
     $hurugi_era=$post['era'];
     
+    $hurugi_salestatus=$post['salestatus'];
+    
     ?>
 <!DOCTTYPE>
 <html lang="ja">
     <head>
         <meta charaset="UTF-8">
         <title>古着管理アプリ</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
         <link rel="stylesheet" href="hurugi.css"/>
+        <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.0.10/font-awesome-animation.css" type="text/css" media="all" />
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="hurugi.js"></script>
     </head>
     <body>
         
@@ -64,8 +73,15 @@ else
             </div>
             <p class="toplistmenu">トップメニュー</p>
             <ul class="selectmenu">
-                <li><a href="../staff/staff_list.php">スタッフ管理</a></li>
+                <?php
+                if($employ == 'admin')
+                {
+                ?>
+                <li ><a href="../staff/staff_list.php">スタッフ管理</a></li>
                 <br />
+                <?php
+                }
+                ?>
                 <li><a href="../product/hurugi_list.php">商品管理</a></li>
                 <br />
                 <li><a href="../product/hurugi_download.php">購入月ダウンロード</a></li>
@@ -76,6 +92,46 @@ else
             </ul>
         </section>
         
+        <section class="mobile-menu">
+            
+            <p><?php print $login; ?>さん、ログイン中<i class="fas fa-user-alt fa-fw fa-2x"></i></p>
+            
+            <div class="menu-btn">
+                <p><i class="fa fa-bars fa-3x" aria-hidden="true"></i></p>
+            </div>
+            <div class="mobile-content">
+                 <?php
+                if($employ == 'admin')
+                {
+                ?>
+                
+                <a href="../staff/staff_list.php" >
+                    <div class="menu__item">スタッフ管理</div>
+                </a>
+                <br />
+                
+                <?php
+                }
+                ?>
+                <a href="../product/hurugi_list.php" >
+                    <div class="menu__item">商品一覧</div>
+                </a>
+                <br />
+                <a href="../product/hurugi_download.php" >
+                    <div class="menu__item">購入月ダウンロード</div>
+                </a>
+                <br />
+                <a href="../product/saledate_download.php" >
+                    <div class="menu__item">販売月ダウンロード</div>
+                </a>
+                <br />
+                <a href="../staff_login/staff_logout.php" >
+                    <div class="menu__item">ログアウト</div>
+                </a>
+            </div>
+            
+        </section>
+        
         <section class="add">
             
         <section>
@@ -83,6 +139,22 @@ else
         
             <p>商品コード&nbsp;&nbsp;:&nbsp;&nbsp;<?php print $hurugi_namecode; ?></p>
             <p>商品名&nbsp;&nbsp;:&nbsp;&nbsp;<?php print $hurugi_name; ?></p>
+            <p>
+                ステータス&nbsp;&nbsp;:&nbsp;&nbsp;
+                <?php
+                if($hurugi_salestatus == 'notsale')
+                {
+                    print'未販売';
+                }
+                elseif($hurugi_salestatus == 'onsale')
+                {
+                    print'販売中';
+                }
+                else{
+                    print'販売済み';
+                }
+                ?>
+            </p> 
             <p>
                 カテゴリー&nbsp;&nbsp;:&nbsp;&nbsp;
                 <?php 
@@ -107,7 +179,7 @@ else
             else
             {
             ?>
-                <p>仕入額&nbsp;&nbsp;:&nbsp;&nbsp;<?php print $hurugi_stocking; ?>&nbsp;円</p>
+                <p>仕入額&nbsp;&nbsp;:&nbsp;&nbsp;<?php print $hurugi_stocking; ?>円</p>
             
             <?php
             }
@@ -120,7 +192,7 @@ else
             else
             {
             ?>
-                <p>販売予想額&nbsp;&nbsp;:&nbsp;&nbsp;<?php print $hurugi_expect; ?>&nbsp;円</p>
+                <p>販売予想額&nbsp;&nbsp;:&nbsp;&nbsp;<?php print $hurugi_expect; ?>円</p>
                 
             <?php
             }
@@ -136,7 +208,7 @@ else
             else
             {
             ?>
-               <p>販売額&nbsp;&nbsp;:&nbsp;&nbsp;<?php print $hurugi_sale; ?>&nbsp;円</p>
+               <p>販売額&nbsp;&nbsp;:&nbsp;&nbsp;<?php print $hurugi_sale; ?>円</p>
             
             <?php    
             }
@@ -189,7 +261,7 @@ else
             else
             {
             ?>
-                <p>手数料&nbsp;&nbsp;:&nbsp;&nbsp;<?php print $fee_app; ?>%</p>
+                <p>手数料&nbsp;&nbsp;:&nbsp;&nbsp;<?php print $hurugi_fee; ?>%</p>
                 
             <?php
             }
@@ -208,7 +280,7 @@ else
             else
             {
             ?>
-                <p>送料&nbsp;&nbsp;:&nbsp;&nbsp;<?php print $hurugi_postage; ?></p>
+                <p>送料&nbsp;&nbsp;:&nbsp;&nbsp;<?php print $hurugi_postage; ?>円</p>
                 
             <?php
             }
@@ -216,7 +288,7 @@ else
             
             <?php
             
-            if(preg_match('/^[0-9]+(\.[0-9]*)?$/',$hurugi_fee)==0)
+            if(preg_match('/^[0-9]+(\.[0-9]*)?$/',$hurugi_other)==0)
             {
             ?>
                 <p>その他&nbsp;:&nbsp;正しく半角数字で記入して下さい。</p>
@@ -226,11 +298,20 @@ else
             else
             {
             ?>
-                <p>その他&nbsp;&nbsp;:&nbsp;&nbsp;<?php print $hurugi_other; ?></p>
+                <p>その他&nbsp;&nbsp;:&nbsp;&nbsp;<?php print $hurugi_other; ?>円</p>
                 
             <?php
             }
             ?>
+            
+            <?php
+                $hurugi_profit = floor($hurugi_sale * (100 - $hurugi_fee) * 0.01 - ($hurugi_postage + $hurugi_other));
+                $hurugi_profit_rate = ($hurugi_profit / $hurugi_sale) * 100;
+            ?>
+            
+            <p>利益&nbsp;&nbsp;:&nbsp;&nbsp;<?php print $hurugi_profit; ?>円</p>
+            
+            <p>利益率&nbsp;&nbsp;:&nbsp;&nbsp;<?php print $hurugi_profit_rate; ?>%</p>
             
             <p>仕入先&nbsp;&nbsp;:&nbsp;&nbsp;<?php print $hurugi_shop; ?></p>
               
@@ -331,7 +412,7 @@ else
                 
             ?>
                 <form>
-                    <input type="button" onclick="history.back()" value="戻る">
+                    <input type="button" onclick="history.back()" value="戻る" class="add_back_btn">
                 </form>
                 
             <?php
@@ -366,9 +447,16 @@ else
                     <input type="hidden" name="color" value="<?php print $hurugi_color; ?>">
                     <input type="hidden" name="material" value="<?php print $hurugi_material; ?>">
                     <input type="hidden" name="era" value="<?php print $hurugi_era; ?>">
+                    
+                    <input type="hidden" name="salestatus" value="<?php print $hurugi_salestatus; ?>">
+                    
+                    
+                    
+                    <input type="hidden" name="profit" value="<?php print $hurugi_profit; ?>">
+                    <input type="hidden" name="profit_rate" value="<?php print $hurugi_profit_rate; ?>">
                 
-                    <input type="button" onclick="history.back()" value="戻る">
-                    <input type="submit" value="OK">
+                    <input type="button" onclick="history.back()" value="戻る" class="add_back_btn">
+                    <input type="submit" value="OK" class="add_ok_btn">
                 </form>
             <?php
             }

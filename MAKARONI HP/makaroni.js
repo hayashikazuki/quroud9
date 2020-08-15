@@ -3,7 +3,7 @@ $(function() {
         
         slidesToShow: 3,
         slidesToScroll: 1,
-        autoplay: false,
+        autoplay: true,
         autoplaySpeed: 2000,
         arrows:true,
         prevArrow:'<div class="prevArrow"><i class="fas fa-chevron-left"></i></div>',

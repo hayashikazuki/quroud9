@@ -21,7 +21,7 @@ try
     $dbh = new PDO($dsn,$user,$password);
     $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
     
-    $sql = 'SELECT code,name FROM hurugi_staff WHERE 1';
+    $sql = 'SELECT code,name,shopcode,employ FROM hurugi_staff WHERE 1';
     $stmt = $dbh->prepare($sql);
     $stmt->execute();
     
@@ -42,6 +42,8 @@ try
         <title>古着管理アプリ</title>
         <link rel="stylesheet" href="staff.css"/>
         <link rel="stylesheet" href="../product/bootstrap.css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="staff.js"></script>
         <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.0.10/font-awesome-animation.css" type="text/css" media="all" />
     </head>
@@ -67,6 +69,38 @@ try
             </ul>
         </section>
         
+        
+        <section class="mobile-menu">
+            
+            <p><?php print $login; ?>さん、ログイン中<i class="fas fa-user-alt fa-fw fa-2x"></i></p>
+            
+            <div class="menu-btn">
+                <p><i class="fa fa-bars fa-3x" aria-hidden="true"></i></p>
+            </div>
+            <div class="mobile-content">
+                <a href="../staff/staff_list.php" >
+                    <div class="menu__item">スタッフ管理</div>
+                </a>
+                <br />
+                <a href="../product/hurugi_list.php" >
+                    <div class="menu__item">商品一覧</div>
+                </a>
+                <br />
+                <a href="../product/hurugi_download.php" >
+                    <div class="menu__item">購入月ダウンロード</div>
+                </a>
+                <br />
+                <a href="../product/saledate_download.php" >
+                    <div class="menu__item">販売月ダウンロード</div>
+                </a>
+                <br />
+                <a href="../staff_login/staff_logout.php" >
+                    <div class="menu__item">ログアウト</div>
+                </a>
+            </div>
+            
+        </section>
+        
         <section class="list"> 
             <p>スタッフ一覧</p>
             <form method="post" action="staff_branch.php">
@@ -75,8 +109,9 @@ try
             <div class="staff-list">
                 <table class="table table-striped">
                     <tr>
-                        <td>スタッフコード</td>
-                        <td>スタッフ名</td>
+                        <th>スタッフコード</th>
+                        <th>スタッフ名</th>
+                        <th>店舗コード</th>
                     </tr>
             
                 <?php
@@ -90,12 +125,33 @@ try
                 ?>
                 
                 <tr>
-                    <td><?php print $rec['code']; ?></td>
+                    <td><p><?php print $rec['code']; ?></p></td>
+                    
+                    <?php 
+                    if($rec['employ'] == 'admin')
+                    {
+                    ?>   
+                    
                     <td>
                         <a href="staff_disp.php?staffcode=<?php print $rec['code']; ?>">
-                            <?php print $rec['name']; ?>
+                            <p class="admin"><?php print $rec['name']; ?></p>
                         </a>
                     </td>
+                    
+                    <?php
+                    }else{
+                    ?>
+                    <td>
+                        <a href="staff_disp.php?staffcode=<?php print $rec['code']; ?>">
+                            <p><?php print $rec['name']; ?></p>
+                        </a>
+                    </td>
+                    
+                    <?php
+                    }
+                    ?>
+                    
+                    <td><p><?php print $rec['shopcode']; ?></p></td>
                 </tr>
                 <?php } ?>
                 </table>

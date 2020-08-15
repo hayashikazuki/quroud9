@@ -11,6 +11,8 @@ if(isset($_SESSION['login'])==false)
 else
 {
     $login = $_SESSION['staff_name'];
+    $shopcode = $_SESSION['shopcode'];
+    $employ = $_SESSION['employ'];
 }
 ?>
 <?php
@@ -51,6 +53,12 @@ else
     $hurugi_material=$post['material'];
     $hurugi_era=$post['era'];
     
+    $hurugi_salestatus=$post['salestatus'];
+    
+    $hurugi_profit = floor($hurugi_sale * (100 - $hurugi_fee) * 0.01 - ($hurugi_postage + $hurugi_other));
+    $hurugi_profit_rate = ($hurugi_profit / $hurugi_sale) * 100;
+                
+    
     ?>
 <!DOCTTYPE>
 <html lang="ja">
@@ -58,10 +66,16 @@ else
         <meta charaset="UTF-8">
         <title>古着管理アプリ</title>
         <link rel="stylesheet" href="hurugi.css"/>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.0.10/font-awesome-animation.css" type="text/css" media="all" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="hurugi.js"></script>
     </head>
     <body>
         
         <section class="editmenu">
+
         
         <section class="menu">
             <div class="toplist-loginarea">
@@ -69,8 +83,15 @@ else
             </div>
             <p class="toplistmenu">トップメニュー</p>
             <ul class="selectmenu">
-                <li><a href="../staff/staff_list.php">スタッフ管理</a></li>
+                <?php
+                if($employ == 'admin')
+                {
+                ?>
+                <li ><a href="../staff/staff_list.php">スタッフ管理</a></li>
                 <br />
+                <?php
+                }
+                ?>
                 <li><a href="../product/hurugi_list.php">商品管理</a></li>
                 <br />
                 <li><a href="../product/hurugi_download.php">購入月ダウンロード</a></li>
@@ -81,8 +102,48 @@ else
             </ul>
         </section>
         
+        <section class="mobile-menu">
+            
+            <p><?php print $login; ?>さん、ログイン中<i class="fas fa-user-alt fa-fw fa-2x"></i></p>
+            
+            <div class="menu-btn">
+                <p><i class="fa fa-bars fa-3x" aria-hidden="true"></i></p>
+            </div>
+            <div class="mobile-content">
+                 <?php
+                if($employ == 'admin')
+                {
+                ?>
+                
+                <a href="../staff/staff_list.php" >
+                    <div class="menu__item">スタッフ管理</div>
+                </a>
+                <br />
+                
+                <?php
+                }
+                ?>
+                <a href="../product/hurugi_list.php" >
+                    <div class="menu__item">商品一覧</div>
+                </a>
+                <br />
+                <a href="../product/hurugi_download.php" >
+                    <div class="menu__item">購入月ダウンロード</div>
+                </a>
+                <br />
+                <a href="../product/saledate_download.php" >
+                    <div class="menu__item">販売月ダウンロード</div>
+                </a>
+                <br />
+                <a href="../staff_login/staff_logout.php" >
+                    <div class="menu__item">ログアウト</div>
+                </a>
+            </div>
+            
+        </section>
         
-        <section class="edit">
+        
+        <section class="edit_done">
             
             <p class="edittitle">商品修正</p>
 
@@ -91,7 +152,7 @@ else
             
             if($hurugi_gazou['size'] > 0)
             {
-                if($hurugi_gazou['size'] > 1000000)
+                if($hurugi_gazou['size'] > 10000000)
                 {
                     
             ?>
@@ -114,12 +175,12 @@ else
             <?php
     
             if(preg_match('/\A[0-9]+\z/',$hurugi_stocking)==0 || preg_match('/\A[0-9]+\z/',$hurugi_sale)==0 || preg_match('/\A[0-9]+\z/',$hurugi_expect)==0 || 
-            $hurugi_gazou['size'] > 1000000 || preg_match('/\A[0-9]+\z/',$hurugi_other)==0 || preg_match('/\A[0-9]+\z/',$hurugi_postage)==0 || preg_match('/^[0-9]+(\.[0-9]*)?$/',$hurugi_fee)==0)
+            $hurugi_gazou['size'] > 100000000 || preg_match('/\A[0-9]+\z/',$hurugi_other)==0 || preg_match('/\A[0-9]+\z/',$hurugi_postage)==0 || preg_match('/^[0-9]+(\.[0-9]*)?$/',$hurugi_fee)==0)
             {
                 print'<p>数字は正しく半角で入力してください。</p>';
                 print'<br />';
                 print'<form>';
-                print'<input type="button" onclick="history.back()" value="戻る">';
+                print'<input type="button" onclick="history.back()" value="戻る" class="edit_back_btn">';
                 print'</form>';
                 exit();
     
@@ -131,89 +192,111 @@ else
             $dbh = new PDO($dsn,$user,$password);
             $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
             
-            $sql = 'UPDATE hurugi_product SET namecode=?,name=?,danjo=?,stocking=?,expect=?,sale=?,fee=?,postage=?,other=?,sales_channel=?,
-            shop=?,date=?,saledate=?,remarks=?,gazou=?,status=?,length=?,width=?,sleeve=?,shoulder=?,brand=?,color=?,material=?,era=? WHERE code=?';
+            $sql = 'UPDATE hurugi_product SET namecode=?,name=?,danjo=?,salestatus=?,stocking=?,expect=?,sale=?,sales_channel=?,fee=?,postage=?,other=?,
+            profit=?,profit_rate=?,shop=?,date=?,saledate=?,remarks=?,gazou=?,
+            status=?,length=?,width=?,sleeve=?,shoulder=?,brand=?,color=?,material=?,era=? WHERE code=?';
             $stmt = $dbh->prepare($sql);
+            
             $data[]=$hurugi_namecode;
             $data[]=$hurugi_name;
             
-            if($hurugi_danjo == 'man')
-                {
-                    $data[] = 'man';
-                }
-                else
-                {
-                    $data[] = 'women';
-                }
+            // if($hurugi_danjo == 'man')
+            //     {
+            //         $data[] = 'man';
+            //     }
+            //     else
+            //     {
+            //         $data[] = 'women';
+            //     }
+            $data[] = $hurugi_danjo;
+            // if($hurugi_salestatus == 'notsale')
+            // {
+            //     $data[] = 'notsale';
+            // }
+            // elseif($hurugi_salestatus == 'onsale')
+            // {
+            //     $data[] = 'onsale';
+            // }
+            // else
+            // {
+            //     $data[] = 'sold';
+            // }
+            
+            $data[] = $hurugi_salestatus;
                 
-            $data[]=$hurugi_stocking;
-            $data[]=$hurugi_expect;
-            $data[]=$hurugi_sale;
+            $data[] = $hurugi_stocking;
+            $data[] = $hurugi_expect;
+            $data[] = $hurugi_sale;
+            
+            // switch($hurugi_sales_channel)
+            //     {
+            //         case'mel':
+            //             $data[] = 'mel';
+            //             break;
+                    
+            //         case'raku':
+            //             $data[] = 'raku';
+            //             break;
+                        
+            //         case'yah':
+            //             $data[] = 'yah';
+            //             break;
+                    
+            //         case'premium':
+            //             $data[] = 'premium';
+            //             break;
+                    
+            //         case'otherapp':
+            //             $data[] = 'otherapp';
+            //             break;
+                // }
+            $data[] = $hurugi_sales_channel;
+            
+                
             $data[] = $hurugi_fee;
             $data[] = $hurugi_postage;
             $data[] = $hurugi_other;
-            
-            switch($hurugi_sales_channel)
-                {
-                    case'mel':
-                        $data[] = 'mel';
-                        break;
-                    
-                    case'raku':
-                        $data[] = 'raku';
-                        break;
-                        
-                    case'yah':
-                        $data[] = 'yah';
-                        break;
-                    
-                    case'premium':
-                        $data[] = 'premium';
-                        break;
-                    
-                    case'otherapp':
-                        $data[] = 'otherapp';
-                        break;
-                }
+            $data[] = $hurugi_profit;
+            $data[] = $hurugi_profit_rate;
             $data[]=$hurugi_shop;
             $data[]=$hurugi_date;
             $data[]=$hurugi_saledate;
             $data[]=$hurugi_remarks;
             $data[]=$hurugi_gazou['name'];
             
-            switch($hurugi_status)
-                {
-                    case'new':
-                        $data[] = 'new';
+            // switch($hurugi_status)
+            //     {
+            //         case'new':
+            //             $data[] = 'new';
             
-                        break;
+            //             break;
                     
-                    case'near':
-                        $data[] = 'near';
+            //         case'near':
+            //             $data[] = 'near';
                         
-                        break;
+            //             break;
                         
-                    case'nodird':
-                        $data[] = 'nodird';
+            //         case'nodird':
+            //             $data[] = 'nodird';
                         
-                        break;
+            //             break;
                     
-                    case'somewhat':
-                        $data[] = 'somewhat';
+            //         case'somewhat':
+            //             $data[] = 'somewhat';
                         
-                        break;
+            //             break;
                     
-                    case'dirt':
-                        $data[] = 'dirt';
+            //         case'dirt':
+            //             $data[] = 'dirt';
                         
-                        break;
+            //             break;
                         
-                    case'bad':
-                        $data[] = 'bad';
+            //         case'bad':
+            //             $data[] = 'bad';
                         
-                        break;
-                }
-                
+            //             break;
+            //     }
+            $data[] = $hurugi_status;
             $data[] = $hurugi_length;
             $data[] = $hurugi_width;
             $data[] = $hurugi_sleeve;
@@ -222,8 +305,7 @@ else
             $data[] = $hurugi_color;
             $data[] = $hurugi_material;
             $data[] = $hurugi_era;
-
-            
+    
             $data[]=$hurugi_code;
             
             $stmt->execute($data);
@@ -245,9 +327,12 @@ else
                 exit();
             }
             ?>
-    
-            <p>修正しました。</p>
-            <a href="hurugi_list.php">一覧へ戻る</a>
+            
+            
+            <br />
+            <p class="done_word">修正しました。</p>
+            
+            <a href="hurugi_list.php" class="to_list">一覧へ戻る</a>
     
     
         </section>

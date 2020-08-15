@@ -11,6 +11,7 @@ if(isset($_SESSION['login'])==false)
 else
 {
     $login = $_SESSION['staff_name'];
+    $employ = $_SESSION['employ'];
 }
 ?>
 <!DOCTTYPE>
@@ -18,7 +19,11 @@ else
     <head>
         <meta charaset="UTF-8">
         <title>古着管理アプリ</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
         <link rel="stylesheet" href="hurugi.css"/>
+        <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.0.10/font-awesome-animation.css" type="text/css" media="all" />
+        <script src="hurugi.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
     <script>
@@ -33,8 +38,15 @@ else
             </div>
             <p class="toplistmenu">トップメニュー</p>
             <ul class="selectmenu">
-                <li><a href="../staff/staff_list.php">スタッフ管理</a></li>
+                <?php
+                if($employ == 'admin')
+                {
+                ?>
+                <li ><a href="../staff/staff_list.php">スタッフ管理</a></li>
                 <br />
+                <?php
+                }
+                ?>
                 <li><a href="../product/hurugi_list.php">商品管理</a></li>
                 <br />
                 <li><a href="../product/hurugi_download.php">購入月ダウンロード</a></li>
@@ -44,6 +56,49 @@ else
                 <li><a href="../staff_login/staff_logout.php">ログアウト</a></li>
             </ul>
         </section>
+            
+        
+        
+        
+        <section class="mobile-menu">
+            
+            <p><?php print $login; ?>さん、ログイン中<i class="fas fa-user-alt fa-fw fa-2x"></i></p>
+            
+            <div class="menu-btn">
+                <p><i class="fa fa-bars fa-3x" aria-hidden="true"></i></p>
+            </div>
+            <div class="mobile-content">
+                 <?php
+                if($employ == 'admin')
+                {
+                ?>
+                
+                <a href="../staff/staff_list.php" >
+                    <div class="menu__item">スタッフ管理</div>
+                </a>
+                <br />
+                
+                <?php
+                }
+                ?>
+                <a href="../product/hurugi_list.php" >
+                    <div class="menu__item">商品一覧</div>
+                </a>
+                <br />
+                <a href="../product/hurugi_download.php" >
+                    <div class="menu__item">購入月ダウンロード</div>
+                </a>
+                <br />
+                <a href="../product/saledate_download.php" >
+                    <div class="menu__item">販売月ダウンロード</div>
+                </a>
+                <br />
+                <a href="../staff_login/staff_logout.php" >
+                    <div class="menu__item">ログアウト</div>
+                </a>
+            </div>
+            
+            </section>
         
         <section class="add">
             
@@ -57,7 +112,16 @@ else
                 
                 <p>商品名&nbsp;&nbsp;:&nbsp;&nbsp;<input type="text" name="name" required></p>
                 
-                <p>カテゴリー&nbsp;&nbsp;:&nbsp;&nbsp;<input type="radio" name="danjo" value="man" checked>メンズ&nbsp;&nbsp;<input type="radio" name="danjo" value="woman">レディース</p>
+                <p>ステータス&nbsp;&nbsp;:&nbsp;&nbsp;
+                    <input type="radio" name="salestatus" value="notsale" checked>未販売&nbsp;&nbsp;
+                    <input type="radio" name="salestatus" value="onsale">販売中&nbsp;&nbsp;
+                    <input type="radio" name="salestatus" value="sold">販売済み&nbsp;&nbsp;
+                </p>
+                
+                <p>カテゴリー&nbsp;&nbsp;:&nbsp;&nbsp;
+                    <input type="radio" name="danjo" value="man" checked>メンズ&nbsp;&nbsp;
+                    <input type="radio" name="danjo" value="woman">レディース
+                </p>
                 
                 <p>仕入額&nbsp;&nbsp;:&nbsp;&nbsp;<input type="text" name="stocking" value="0" style="width:100px;">&nbsp;円</p>
                 
@@ -145,8 +209,8 @@ else
                 </p>
                 
                 
-                <input type="button" onclick="history.back()" value="戻る">
-                <input type="submit" value="OK">
+                <input type="button" onclick="history.back()" value="戻る" class="add_back_btn">
+                <input type="submit" value="OK" class="add_ok_btn">
             </form>
             
         </section>

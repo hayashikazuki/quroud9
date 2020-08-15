@@ -11,6 +11,9 @@ if(isset($_SESSION['login'])==false)
 else
 {
     $login = $_SESSION['staff_name'];
+    
+    $shopcode = $_SESSION['shopcode'];
+    $employ = $_SESSION['employ'];
 }
 ?>
 <?php
@@ -41,11 +44,12 @@ else
     // $sql .= ' FROM hurugi_product WHERE substr(date,1,4)=? AND substr(date,6,2)=?';
 
     $sql = 'SELECT namecode,name,danjo,stocking,expect,sale,fee,postage,other,sales_channel,
-    shop,date,saledate,remarks,brand,era FROM hurugi_product 
-    WHERE substr(date,1,4)=? AND substr(date,6,2)=?';
+    shop,date,saledate,remarks,brand,era,salestatus,profit,profit_rate FROM hurugi_product 
+    WHERE substr(date,1,4)=? AND substr(date,6,2)=? AND shopcode=?';
     $stmt = $dbh->prepare($sql);
     $data[] = $year;
     $data[] = $month;
+    $data[] = $shopcode;
     $stmt->execute($data);
     
     $dbh = null;
@@ -53,6 +57,7 @@ else
     $columns = [
         'namecode' => '商品コード',
         'name' => '商品名',
+        'salestatus' => 'ステータス',
         'danjo' => 'カテゴリー',
         'brand' => 'ブランド名',
         'era' => '年代',
@@ -78,6 +83,7 @@ else
         $csv .= $columns[$value] . ',';
     }
     
+    $csv.= substr($csv, 0, -1);
     
     $csv.="\n";
     
@@ -93,15 +99,33 @@ else
             
             
             switch($value){
-                case 'profit':
-                    $csv.= $rec['sale'] * (100 - $rec['fee']) * 0.01 - ($rec['postage'] + $rec['other']) - $rec['stocking'];
-                    break;
+                case 'danjo':
+                if($rec['danjo']=='man')
+                {
+                    $csv.='メンズ';
+                }
+                else
+                {
+                    $csv.='レディース';
+                }
+                
+                break;
                     
-                case 'profit_rate':
-                    $profit = $rec['sale'] * (100 - $rec['fee']) * 0.01 - ($rec['postage'] + $rec['other']) - $rec['stocking'];
-                    $sale = $rec['sale'] * (100 - $rec['fee']) * 0.01 - ($rec['postage'] + $rec['other']);
-                    $csv.= $profit / $sale * 100;
-                    break;
+                case 'salestatus':
+                    
+                if($rec['salestatus']=='notsale')
+                {
+                    $csv.='未販売';
+                }
+                elseif($rec['salestatus']=='onsale')
+                {
+                    $csv.='販売中';
+                }
+                else{
+                    $csv.='販売済み';
+                }
+                    
+                break;
                     
                 case 'sales_channel':
                     switch($rec['sales_channel'])
@@ -134,6 +158,13 @@ else
                         $csv.=$app; 
                         
                         break;
+                        
+                        
+                case 'profit_rate':
+                    
+                    $csv.=floor($rec['profit_rate']);
+                    
+                    break;
                     
                 
                 default:
@@ -143,7 +174,10 @@ else
             
             
             $csv.= ",";
+            
         }
+        
+       $csv.= substr($csv, 0, -1);
         
         $csv.= "\n";
     }
@@ -168,6 +202,11 @@ else
         <meta charaset="UTF-8">
         <title>古着管理アプリ</title>
         <link rel="stylesheet" href="hurugi.css"/>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.0.10/font-awesome-animation.css" type="text/css" media="all" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="hurugi.js"></script>
     </head>
     <body>
         
@@ -179,8 +218,15 @@ else
             </div>
             <p class="toplistmenu">トップメニュー</p>
             <ul class="selectmenu">
-                <li><a href="../staff/staff_list.php">スタッフ管理</a></li>
+                <?php
+                if($employ == 'admin')
+                {
+                ?>
+                <li ><a href="../staff/staff_list.php">スタッフ管理</a></li>
                 <br />
+                <?php
+                }
+                ?>
                 <li><a href="../product/hurugi_list.php">商品管理</a></li>
                 <br />
                 <li><a href="../product/hurugi_download.php">購入月ダウンロード</a></li>
@@ -190,15 +236,55 @@ else
                 <li><a href="../staff_login/staff_logout.php">ログアウト</a></li>
             </ul>
         </section>
+        
+        <section class="mobile-menu">
+            
+            <p><?php print $login; ?>さん、ログイン中<i class="fas fa-user-alt fa-fw fa-2x"></i></p>
+            
+            <div class="menu-btn">
+                <p><i class="fa fa-bars fa-3x" aria-hidden="true"></i></p>
+            </div>
+            <div class="mobile-content">
+                 <?php
+                if($employ == 'admin')
+                {
+                ?>
+                
+                <a href="../staff/staff_list.php" >
+                    <div class="menu__item">スタッフ管理</div>
+                </a>
+                <br />
+                
+                <?php
+                }
+                ?>
+                <a href="../product/hurugi_list.php" >
+                    <div class="menu__item">商品一覧</div>
+                </a>
+                <br />
+                <a href="../product/hurugi_download.php" >
+                    <div class="menu__item">購入月ダウンロード</div>
+                </a>
+                <br />
+                <a href="../product/saledate_download.php" >
+                    <div class="menu__item">販売月ダウンロード</div>
+                </a>
+                <br />
+                <a href="../staff_login/staff_logout.php" >
+                    <div class="menu__item">ログアウト</div>
+                </a>
+            </div>
+            
+        </section>
     
         <section class="dawnload">
             <p class="dawnloadtitle">購入月ダウンロード</p>
 
-            <a href="hurugi.csv"><?php print $year; ?>年&nbsp;<?php print $month; ?>月&nbsp;ダウンロード</a><br />
+            <a href="hurugi.csv" class="dawnload_menu"><?php print $year; ?>年&nbsp;<?php print $month; ?>月&nbsp;ダウンロード</a><br />
             <br />
-            <a href="hurugi_download.php">日付選択へ</a><br />
+            <a href="hurugi_download.php" class="more_add">日付選択へ</a><br />
             <br />
-            <a href="hurugi_list.php">一覧へ戻る</a>
+            <a href="hurugi_list.php" class="to_list">一覧へ戻る</a>
     
         </section>
         

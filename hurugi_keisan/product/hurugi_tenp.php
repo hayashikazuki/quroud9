@@ -11,6 +11,7 @@ if(isset($_SESSION['login'])==false)
 else
 {
     $login = $_SESSION['staff_name'];
+    $employ = $_SESSION['employ'];
 }
 
 ?>
@@ -80,6 +81,11 @@ else
         <meta charaset="UTF-8">
         <title>古着管理アプリ</title>
         <link rel="stylesheet" href="hurugi.css"/>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.0.10/font-awesome-animation.css" type="text/css" media="all" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="hurugi.js"></script>
     </head>
     <body>
         
@@ -91,8 +97,15 @@ else
             </div>
             <p class="toplistmenu">トップメニュー</p>
             <ul class="selectmenu">
-                <li><a href="../staff/staff_list.php">スタッフ管理</a></li>
+                <?php
+                if($employ == 'admin')
+                {
+                ?>
+                <li ><a href="../staff/staff_list.php">スタッフ管理</a></li>
                 <br />
+                <?php
+                }
+                ?>
                 <li><a href="../product/hurugi_list.php">商品管理</a></li>
                 <br />
                 <li><a href="../product/hurugi_download.php">購入月ダウンロード</a></li>
@@ -103,12 +116,56 @@ else
             </ul>
         </section>
         
+        <section class="mobile-menu">
+            
+            <p><?php print $login; ?>さん、ログイン中<i class="fas fa-user-alt fa-fw fa-2x"></i></p>
+            
+            <div class="menu-btn">
+                <p><i class="fa fa-bars fa-3x" aria-hidden="true"></i></p>
+            </div>
+            <div class="mobile-content">
+                 <?php
+                if($employ == 'admin')
+                {
+                ?>
+                
+                <a href="../staff/staff_list.php" >
+                    <div class="menu__item">スタッフ管理</div>
+                </a>
+                <br />
+                
+                <?php
+                }
+                ?>
+                <a href="../product/hurugi_list.php" >
+                    <div class="menu__item">商品一覧</div>
+                </a>
+                <br />
+                <a href="../product/hurugi_download.php" >
+                    <div class="menu__item">購入月ダウンロード</div>
+                </a>
+                <br />
+                <a href="../product/saledate_download.php" >
+                    <div class="menu__item">販売月ダウンロード</div>
+                </a>
+                <br />
+                <a href="../staff_login/staff_logout.php" >
+                    <div class="menu__item">ログアウト</div>
+                </a>
+            </div>
+            
+        </section>
+        
     <section class="tenp">
         <p class="tenptitle">テンプレート一覧</p>
         
         <p>テンプレート❶</p>
         
-        <div class="tenp1">
+        <button onclick="copyToClipboard()">Copy text</button>
+        
+        
+        <div class="tenp1" id="textDiv">
+            
             <p>閲覧いただき誠にありがとうございます^ ^</p>
             <br />
             <p>即購入大歓迎でございます。</p>
@@ -119,13 +176,46 @@ else
             <br />
             <p>◯ 商品の状態: </p>
             <br />
-            <p>こちらの商品は 【】ランクです。</p>
+            <?php
+                switch($hurugi_status)
+                {
+                            case'new':
+                                $status = '新';
+                    
+                                break;
+                            
+                            case'near':
+                                $status = '新';
+                                
+                                break;
+                                
+                            case'nodirt':
+                                $status = '１';
+                                
+                                break;
+                            
+                            case'somewhat':
+                                $status = '２';
+                                
+                                break;
+                            
+                            case'dirt':
+                                $status = '３';
+                                
+                                break;
+                                
+                            case'bad':
+                                $status = '４';
+                                
+                                break;
+                }
+            ?>
+            <p>こちらの商品は 【<?php print $status; ?>】ランクです。</p>
             <p>【新】新品または新品同様に近いもの。</p>
             <p>【1】多少使用感はあるが、目立つ傷や大きな汚れはないもの。</p>
             <p>【2】使用感や部分的にやや傷や汚れがあるが、着用には問題がないもの。普段古着を買う方なら気にならない程度。</p>
             <p>【3】使用感や傷、汚れがあるもの。古着慣れしている方におすすめ。</p>
             <p>【4】大きな傷や汚れが見られるもの。古着上級者さんや、気にならない方、リメイクに使われる方におすすめ。</p>
-            <p>【R】デッドストック or 激レア。</p>
             <br />
             <br />
             <br />
@@ -165,11 +255,35 @@ else
             <p>↑他の商品も出品しておりますので、是非ご覧ください。</p>
             <p>最後までお読みいただきありがとうございました^ ^</p>
             <p>気持ちの良いお取引をどうぞよろしくお願い致します。</p>
+            
+    
         </div>
+        
+            <br />
+            <a href="hurugi_disp.php?hurugicode=<?php print $hurugi_code; ?>" class="more_add">参照へ戻る</a>
+            <br />
+            <a href="hurugi_list.php" class="to_list">一覧へ戻る</a>
         
     </section>
     
     </section>
+    
+    <script>
+        function copyToClipboard() {
+    
+        var text = $('#textDiv').text(); // #textDivの中のtextを代入する　
+        var clipboard = $('<textarea></textarea>'); // js内で仮想のtextarea（clipboard)を生成する
+        clipboard.val(text);  // 仮想のtextareaにtextを代入する
+        $("#textDiv").append(clipboard); // 一時的にtextareaをHTMLに追加する　
+        clipboard.select(); // textareaを選択状態にする
+        document.execCommand('copy'); // textareaの中身をコピーする
+        clipboard.remove(); // 一時追加したtextareaを削除する
+        
+        alert("コピーしました");
+    
+        }
+        
+    </script>
  
     </body>
 </html>
