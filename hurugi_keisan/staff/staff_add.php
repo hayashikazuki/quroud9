@@ -10,6 +10,7 @@ if(isset($_SESSION['login'])==false)
 else
 {
     $login = $_SESSION['staff_name'];
+    
 }
 ?>
 <!DOCTYPE html>

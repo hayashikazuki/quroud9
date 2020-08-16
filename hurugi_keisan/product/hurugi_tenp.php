@@ -12,6 +12,12 @@ else
 {
     $login = $_SESSION['staff_name'];
     $employ = $_SESSION['employ'];
+    
+    if(isset($_SESSION['shopcode'])){
+        $shopcode = $_SESSION['shopcode'];
+    }else{
+        header('Location:../staff_login/staff_login.php');
+    }
 }
 
 ?>

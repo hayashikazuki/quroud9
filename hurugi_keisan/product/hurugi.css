@@ -1189,10 +1189,10 @@ td{
 
 .login-name{
     display:block;
-    width:130px;
-    font-size:4px;
+    width:80px;
+    font-size:1px;
     position:fixed;
-    right:80px;
+    right:45%;
     top:8px;
 }
 
@@ -1422,6 +1422,7 @@ td{
     border:1px solid black;
     padding:10px;
 }
-    
+
+
 }
 

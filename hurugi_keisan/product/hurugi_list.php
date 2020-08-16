@@ -18,6 +18,8 @@ else
     }else{
         header('Location:../staff_login/staff_login.php');
     }
+    
+    
     $employ = $_SESSION['employ'];
 }
     
@@ -187,7 +189,7 @@ else
     
     
     
-    $limit = 10;
+    $limit = 50;
     
     $sql .= ' LIMIT '.$limit;
     
@@ -354,7 +356,8 @@ else
                 </a>
                 
                 <div class="login-name">
-                    <p><?php print $login; ?>さん、ログイン中<i class="fas fa-user-alt fa-fw fa-2x"></i></p>
+                    <p><?php print $login; ?>さん</p>
+                    <p>ログイン中<i class="fas fa-user-alt fa-fw fa-2x"></i></p>
                 </div>
             </div>
             
@@ -769,17 +772,17 @@ else
     </a>
     
     <?php 
-    if($cnt % 10 == 0)
+    if($cnt % 50 == 0)
     {
-        $max = $cnt / 10;
+        $max = $cnt / 50;
         
     }else{
-        $max = ($cnt / 10) +1;
+        $max = ($cnt / 50) +1;
     }
     ?>
     
     
-    <nav aria-label="Page navigation">
+    <nav aria-label="Page navigation" style="z-index:0;">
     <ul class="pagination justify-content-center">
 
         <?php 

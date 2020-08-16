@@ -3,6 +3,10 @@ body{
     font-family:'Tahoma','Verdana';
 }
 
+#contents{
+    overflow: hidden;
+}
+
 header{
     display:flex;
     width:100%;
